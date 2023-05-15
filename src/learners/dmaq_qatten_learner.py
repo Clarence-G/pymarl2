@@ -1,8 +1,7 @@
 # From https://github.com/wjh720/QPLEX/, added here for convenience.
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.mixers.dmaq_general import DMAQer
-import torch.nn.functional as F
+from learners.modules.mixers.dmaq_general import DMAQer
 import torch as th
 from torch.optim import Adam
 import numpy as np

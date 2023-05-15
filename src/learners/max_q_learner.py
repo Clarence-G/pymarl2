@@ -1,11 +1,11 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.mixers.vdn import VDNMixer
-from modules.mixers.qmix import QMixer
-from modules.mixers.qmix_central_no_hyper import QMixerCentralFF
+from learners.modules.mixers.vdn import VDNMixer
+from learners.modules.mixers.qmix import QMixer
+from learners.modules.mixers.qmix_central_no_hyper import QMixerCentralFF
 from utils.rl_utils import build_td_lambda_targets
 import torch as th
-from torch.optim import RMSprop, Adam
+from torch.optim import Adam
 from collections import deque
 from controllers import REGISTRY as mac_REGISTRY
 from utils.th_utils import get_parameters_num

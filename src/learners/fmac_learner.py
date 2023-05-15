@@ -1,14 +1,12 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.critics.fmac_critic import FMACCritic
-from modules.critics.lica import LICACritic
+from learners.modules.critics.fmac_critic import FMACCritic
 import torch as th
 from torch.optim import RMSprop, Adam
-from modules.mixers.vdn import VDNMixer
-from modules.mixers.qmix import QMixer
+from learners.modules.mixers.vdn import VDNMixer
+from learners.modules.mixers.qmix import QMixer
 from components.action_selectors import categorical_entropy
 from utils.rl_utils import build_td_lambda_targets
-from components.epsilon_schedules import DecayThenFlatSchedule
 from utils.th_utils import get_parameters_num
 
 

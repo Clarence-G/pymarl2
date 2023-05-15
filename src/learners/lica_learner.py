@@ -1,10 +1,10 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.critics.lica import LICACritic
+from learners.modules.critics.lica import LICACritic
 from components.action_selectors import multinomial_entropy
 from utils.rl_utils import build_td_lambda_targets
 import torch as th
-from torch.optim import RMSprop, Adam
+from torch.optim import Adam
 from utils.th_utils import get_parameters_num
 
 class LICALearner:

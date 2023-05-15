@@ -1,89 +1,28 @@
-import datetime
+import numpy as np
 import os
-import pprint
+import collections
+from os.path import dirname, abspath, join
+from copy import deepcopy
+from sacred import Experiment, SETTINGS
+from sacred.observers import FileStorageObserver
+from sacred.utils import apply_backspaces_and_linefeeds
 import sys
-import time
-import threading
 import torch as th
-from types import SimpleNamespace as SN
-from utils.logging import Logger
-from utils.timehelper import time_left, time_str
-from os.path import dirname, abspath
 
-from learners import REGISTRY as le_REGISTRY
-from runners import REGISTRY as r_REGISTRY
-from controllers import REGISTRY as mac_REGISTRY
-from components.episode_buffer import ReplayBuffer
-from components.transforms import OneHot
+import runners
+from utils.logging import get_logger
+import yaml
 
-from smac.env import StarCraft2Env
-
+from run import REGISTRY as run_REGISTRY
 def get_agent_own_state_size(env_args):
     sc_env = StarCraft2Env(**env_args)
     # qatten parameter setting (only use in qatten)
     return  4 + sc_env.shield_bits_ally + sc_env.unit_type_bits
 
-def run(_run, _config, _log):
-
-    # check args sanity
-    _config = args_sanity_check(_config, _log)
-
-    args = SN(**_config)
-    args.device = "cuda" if args.use_cuda else "cpu"
-
-    # setup loggers
-    logger = Logger(_log)
-
-    _log.info("Experiment Parameters:")
-    experiment_params = pprint.pformat(_config,
-                                       indent=4,
-                                       width=1)
-    _log.info("\n\n" + experiment_params + "\n")
-
-    # configure tensorboard logger
-    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-    args.unique_token = unique_token
-    if args.use_tensorboard:
-        tb_logs_direc = os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "tb_logs")
-        tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)
-        logger.setup_tb(tb_exp_direc)
-
-    # sacred is on by default
-    logger.setup_sacred(_run)
-
-    # Run and train
-    run_sequential(args=args, logger=logger)
-
-    # Clean up after finishing
-    print("Exiting Main")
-
-    print("Stopping all threads")
-    for t in threading.enumerate():
-        if t.name != "MainThread":
-            print("Thread {} is alive! Is daemon: {}".format(t.name, t.daemon))
-            t.join(timeout=1)
-            print("Thread joined")
-
-    print("Exiting script")
-
-    # Making sure framework really exits
-    sys.exit(0)
-
-
-def evaluate_sequential(args, runner):
-
-    for _ in range(args.test_nepisode):
-        runner.run(test_mode=True)
-
-    if args.save_replay:
-        runner.save_replay()
-
-    runner.close_env()
 
 def run_sequential(args, logger):
-
     # Init runner so we can get env info
-    runner = r_REGISTRY[args.runner](args=args, logger=logger)
+    runner = runners.EpisodeRunner(args, logger)
 
     # Set up schemes and groups here
     env_info = runner.get_env_info()
@@ -212,7 +151,7 @@ def run_sequential(args, logger):
         if args.save_model and (runner.t_env - model_save_time >= args.save_model_interval or model_save_time == 0):
             model_save_time = runner.t_env
             save_path = os.path.join(args.local_results_path, "models", args.unique_token, str(runner.t_env))
-            #"results/models/{}".format(unique_token)
+            # "results/models/{}".format(unique_token)
             os.makedirs(save_path, exist_ok=True)
             logger.console_logger.info("Saving models to {}".format(save_path))
 
@@ -230,18 +169,111 @@ def run_sequential(args, logger):
     runner.close_env()
     logger.console_logger.info("Finished Training")
 
+if __name__ == '__main__':
+    args_json = {'action_selector': 'epsilon_greedy',
+                 'agent': 'n_rnn',
+                 'agent_output_type': 'q',
+                 'batch_size': 128,
+                 'batch_size_run': 1,
+                 'buffer_cpu_only': True,
+                 'buffer_size': 5000,
+                 'checkpoint_path': 'C:/Users/tryso/py/pymarl2/results/models/qmix_env=8_adam_td_lambda__2023-02-17_15-40-46',
+                 'critic_lr': 0.0005,
+                 'env': 'sc2',
+                 'env_args': {'continuing_episode': True,
+                              'debug': False,
+                              'difficulty': '7',
+                              'game_version': None,
+                              'heuristic_ai': False,
+                              'heuristic_rest': False,
+                              'map_name': '2m_vs_1z',
+                              'move_amount': 2,
+                              'obs_all_health': True,
+                              'obs_instead_of_state': False,
+                              'obs_last_action': False,
+                              'obs_own_health': True,
+                              'obs_pathing_grid': False,
+                              'obs_terrain_height': False,
+                              'obs_timestep_number': False,
+                              'replay_dir': '',
+                              'replay_prefix': '',
+                              'reward_death_value': 10,
+                              'reward_defeat': 0,
+                              'reward_negative_scale': 0.5,
+                              'reward_only_positive': True,
+                              'reward_scale': True,
+                              'reward_scale_rate': 20,
+                              'reward_sparse': False,
+                              'reward_win': 200,
+                              'seed': 315055481,
+                              'state_last_action': True,
+                              'state_timestep_number': False,
+                              'step_mul': 8},
+                 'epsilon_anneal_time': 100000,
+                 'epsilon_finish': 0.05,
+                 'epsilon_start': 1.0,
+                 'evaluate': False,
+                 'gain': 0.01,
+                 'gamma': 0.99,
+                 'grad_norm_clip': 10,
+                 'hypernet_embed': 64,
+                 'label': 'default_label',
+                 'learner': 'nq_learner',
+                 'learner_log_interval': 10000,
+                 'load_step': 0,
+                 'local_results_path': 'results',
+                 'log_interval': 10000,
+                 'lr': 0.001,
+                 'mac': 'n_mac',
+                 'mixer': 'qmix',
+                 'mixing_embed_dim': 32,
+                 'name': 'qmix_env=8_adam_td_lambda',
+                 'obs_agent_id': True,
+                 'obs_last_action': True,
+                 'optim_alpha': 0.99,
+                 'optim_eps': 1e-05,
+                 'optimizer': 'adam',
+                 'per_alpha': 0.6,
+                 'per_beta': 0.4,
+                 'q_lambda': False,
+                 'repeat_id': 1,
+                 'return_priority': False,
+                 'rnn_hidden_dim': 64,
+                 'run': 'default',
+                 'runner': 'episode',
+                 'runner_log_interval': 10000,
+                 'save_model': True,
+                 'save_model_interval': 5000,
+                 'save_replay': True,
+                 'seed': 315055481,
+                 't_max': 10050000,
+                 'target_update_interval': 200,
+                 'td_lambda': 0.6,
+                 'test_greedy': True,
+                 'test_interval': 10000,
+                 'test_nepisode': 15,
+                 'use_cuda': False,
+                 'use_layer_norm': False,
+                 'use_orthogonal': False,
+                 'use_per': False,
+                 'use_tensorboard': False}
 
-def args_sanity_check(config, _log):
+    args = argparse.Namespace(**args_json)
+    args.device = "cuda" if args.use_cuda else "cpu"
 
-    # set CUDA flags
-    # config["use_cuda"] = True # Use cuda whenever possible!
-    if config["use_cuda"] and not th.cuda.is_available():
-        config["use_cuda"] = False
-        _log.warning("CUDA flag use_cuda was switched OFF automatically because no CUDA devices are available!")
+    # setup loggers
+    logger = utils.logging.get_logger()
 
-    if config["test_nepisode"] < config["batch_size_run"]:
-        config["test_nepisode"] = config["batch_size_run"]
-    else:
-        config["test_nepisode"] = (config["test_nepisode"]//config["batch_size_run"]) * config["batch_size_run"]
+    logger.info("Experiment Parameters:")
 
-    return config
+    # configure tensorboard logger
+    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    args.unique_token = unique_token
+    if args.use_tensorboard:
+        tb_logs_direc = os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "tb_logs")
+        tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)
+        logger.setup_tb(tb_exp_direc)
+    runner = runners.EpisodeRunner(args, logger)
+
+
+

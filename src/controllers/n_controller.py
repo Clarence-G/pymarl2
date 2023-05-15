@@ -1,9 +1,5 @@
-from modules.agents import REGISTRY as agent_REGISTRY
-from components.action_selectors import REGISTRY as action_REGISTRY
 from .basic_controller import BasicMAC
-import torch as th
-from utils.rl_utils import RunningMeanStd
-import numpy as np
+
 
 # This multi-agent controller shares parameters between agents
 class NMAC(BasicMAC):
