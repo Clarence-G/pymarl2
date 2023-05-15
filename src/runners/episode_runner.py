@@ -1,12 +1,18 @@
+import random
+
 from envs import REGISTRY as env_REGISTRY
 from functools import partial
 from components.episode_buffer import EpisodeBatch
 import numpy as np
+import torch
+
+from runners.params import PostParam
 
 
 class EpisodeRunner:
 
     def __init__(self, args, logger):
+        self.mac = None
         self.args = args
         self.logger = logger
         self.batch_size = self.args.batch_size_run
@@ -47,6 +53,7 @@ class EpisodeRunner:
 
     def run(self, test_mode=False):
         self.reset()
+        para = PostParam()
 
         terminated = False
         episode_return = 0
@@ -64,11 +71,16 @@ class EpisodeRunner:
 
             # Pass the entire batch of experiences up till now to the agents
             # Receive the actions for each agent at this timestep in a batch of size 1
-            actions = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
+            save_probs = getattr(self.args, "save_probs", False)
+            if save_probs:
+                actions, probs = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
+            else:
+                actions = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
             # Fix memory leak
             cpu_actions = actions.to("cpu").numpy()
             
             reward, terminated, env_info = self.env.step(actions[0])
+            para.state_list.append(self.env.get_state())
             episode_return += reward
 
             post_transition_data = {
@@ -89,7 +101,10 @@ class EpisodeRunner:
         self.batch.update(last_data, ts=self.t)
 
         # Select actions in the last stored state
-        actions = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
+        if save_probs:
+            actions, probs = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
+        else:
+            actions = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
         # Fix memory leak
         cpu_actions = actions.to("cpu").numpy()
         self.batch.update({"actions": cpu_actions}, ts=self.t)
@@ -105,6 +120,7 @@ class EpisodeRunner:
             self.t_env += self.t
 
         cur_returns.append(episode_return)
+        para.reward = episode_return
 
         if test_mode and (len(self.test_returns) == self.args.test_nepisode):
             self._log(cur_returns, cur_stats, log_prefix)
@@ -113,6 +129,9 @@ class EpisodeRunner:
             if hasattr(self.mac.action_selector, "epsilon"):
                 self.logger.log_stat("epsilon", self.mac.action_selector.epsilon, self.t_env)
             self.log_train_stats_t = self.t_env
+
+        if test_mode:
+            return self.batch, para
 
         return self.batch
 
@@ -123,5 +142,5 @@ class EpisodeRunner:
 
         for k, v in stats.items():
             if k != "n_episodes":
-                self.logger.log_stat(prefix + k + "_mean" , v/stats["n_episodes"], self.t_env)
+                self.logger.log_stat(prefix + k + "_mean", v / stats["n_episodes"], self.t_env)
         stats.clear()

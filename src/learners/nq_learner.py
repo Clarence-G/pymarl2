@@ -1,14 +1,13 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.mixers.nmix import Mixer
-from modules.mixers.vdn import VDNMixer
-from modules.mixers.qatten import QattenMixer
+from learners.modules.mixers.nmix import Mixer
+from learners.modules.mixers.vdn import VDNMixer
+from learners.modules.mixers.qatten import QattenMixer
 from envs.matrix_game import print_matrix_status
 from utils.rl_utils import build_td_lambda_targets, build_q_lambda_targets
 import torch as th
 from torch.optim import RMSprop, Adam
-import numpy as np
-from utils.th_utils import get_parameters_num
+
 
 class NQLearner:
     def __init__(self, mac, scheme, logger, args):
@@ -31,8 +30,8 @@ class NQLearner:
         self.target_mixer = copy.deepcopy(self.mixer)
         self.params += list(self.mixer.parameters())
 
-        print('Mixer Size: ')
-        print(get_parameters_num(self.mixer.parameters()))
+        # print('Mixer Size: ')
+        # print(get_parameters_num(self.mixer.parameters()))
 
         if self.args.optimizer == 'adam':
             self.optimiser = Adam(params=self.params,  lr=args.lr, weight_decay=getattr(args, "weight_decay", 0))

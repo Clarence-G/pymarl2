@@ -1,6 +1,6 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.critics.coma import COMACritic
+from learners.modules.critics.coma import COMACritic
 from utils.rl_utils import build_td_lambda_targets
 from torch.distributions import Categorical
 import torch as th

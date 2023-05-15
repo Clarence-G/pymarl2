@@ -4,7 +4,7 @@ env_args:
   continuing_episode: False
   difficulty: "7"
   game_version: null
-  map_name: "3m"
+  map_name: "2m_vs_1z"
   move_amount: 2
   obs_all_health: True
   obs_instead_of_state: False
@@ -31,10 +31,15 @@ env_args:
   heuristic_rest: False
   debug: False
 
+runner: "parallel"
+checkpoint_path: "results/models/ippo_env=8_adam_gae__2023-05-14_18-36-28"
+save_model: True
+save_replay: False
+save_model_interval: 5000
 test_greedy: True
 test_nepisode: 32
-test_interval: 10000
-log_interval: 10000
-runner_log_interval: 10000
-learner_log_interval: 10000
+test_interval: 5000
+log_interval: 5000
+runner_log_interval: 5000
+learner_log_interval: 5000
 t_max: 2050000

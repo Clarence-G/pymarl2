@@ -1,7 +1,7 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.mixers.vdn import VDNMixer
-from modules.mixers.qmix import QMixer
+from learners.modules.mixers.vdn import VDNMixer
+from learners.modules.mixers.qmix import QMixer
 from utils.rl_utils import build_td_lambda_targets
 from components.action_selectors import categorical_entropy
 import torch as th

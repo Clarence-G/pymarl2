@@ -1,12 +1,11 @@
 import copy
 from components.episode_buffer import EpisodeBatch
-from modules.mixers.vdn import VDNMixer
-from modules.mixers.qmix import QMixer
-from utils.rl_utils import build_td_lambda_targets
+from learners.modules.mixers.vdn import VDNMixer
+from learners.modules.mixers.qmix import QMixer
 from envs.matrix_game import print_matrix_status
 import torch as th
 from torch.optim import RMSprop, Adam
-import numpy as np
+
 
 class QLearner:
     def __init__(self, mac, scheme, logger, args):
