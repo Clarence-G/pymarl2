@@ -5,3 +5,9 @@ results/
 *.png
 *.zip
 .DS_Store
+/.idea/misc.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/pymarl2.iml
+/.idea/vcs.xml
+/.idea/workspace.xml
