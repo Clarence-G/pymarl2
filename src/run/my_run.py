@@ -33,52 +33,6 @@ def get_agent_own_state_size(env_args):
     return 4 + sc_env.shield_bits_ally + sc_env.unit_type_bits
 
 
-def run(_run, _config, _log):
-    # check args sanity
-    _config = args_sanity_check(_config, _log)
-
-    args = SN(**_config)
-    args.device = "cuda" if args.use_cuda else "cpu"
-
-    # setup loggers
-    logger = Logger(_log)
-
-    _log.info("Experiment Parameters:")
-    experiment_params = pprint.pformat(_config,
-                                       indent=4,
-                                       width=1)
-    _log.info("\n\n" + experiment_params + "\n")
-
-    # configure tensorboard logger
-    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-    args.unique_token = unique_token
-    if args.use_tensorboard:
-        tb_logs_direc = os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "tb_logs")
-        tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)
-        logger.setup_tb(tb_exp_direc)
-
-    # sacred is on by default
-    logger.setup_sacred(_run)
-
-    # Run and train
-    run_sequential(args=args, logger=logger)
-
-    # Clean up after finishing
-    print("Exiting Main")
-
-    print("Stopping all threads")
-    for t in threading.enumerate():
-        if t.name != "MainThread":
-            print("Thread {} is alive! Is daemon: {}".format(t.name, t.daemon))
-            t.join(timeout=1)
-            print("Thread joined")
-
-    print("Exiting script")
-
-    # Making sure framework really exits
-    # sys.exit(0)
-
-
 def agent_evaluate_sequential(args, logger, param: AgentParam = None):
     # copy args
     args = copy.deepcopy(args)
@@ -87,13 +41,18 @@ def agent_evaluate_sequential(args, logger, param: AgentParam = None):
     learner, runner, buffer = init_learner(args, logger, param)
     state_set = set()
     total_reward = 0
+    winning = 0
+    logger.console_logger.info("Start evaluating agent for {} episodes".format(args.test_nepisode))
     for _ in range(args.test_nepisode):
         batch, para = runner.run(test_mode=True)
         for s in para.state_list:
             state_set.add(tuple(s))
         total_reward += para.reward
+        if para.is_win:
+            winning += 1
 
     avg_reward = total_reward / args.test_nepisode
+    logger.console_logger.info("Winning rate: {}".format(winning / args.test_nepisode))
 
     if args.save_replay:
         runner.save_replay()
@@ -230,21 +189,6 @@ def run_sequential(args, logger, preparam: AgentParam = None):
     postParam = AgentParam()
     postParam.save_params(learner)
     return postParam
-
-
-def args_sanity_check(config, _log):
-    # set CUDA flags
-    # config["use_cuda"] = True # Use cuda whenever possible!
-    if config["use_cuda"] and not th.cuda.is_available():
-        config["use_cuda"] = False
-        _log.warning("CUDA flag use_cuda was switched OFF automatically because no CUDA devices are available!")
-
-    if config["test_nepisode"] < config["batch_size_run"]:
-        config["test_nepisode"] = config["batch_size_run"]
-    else:
-        config["test_nepisode"] = (config["test_nepisode"] // config["batch_size_run"]) * config["batch_size_run"]
-
-    return config
 
 
 def conv_args(config, _log):

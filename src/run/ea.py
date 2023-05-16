@@ -35,17 +35,22 @@ class EAPopulation:
         self.agent_param.save_params(learner)
         self.agent_flat = flatten_parameters(self.agent_param.agent)
 
-    def train(self):
+    def train(self, epoch=0):
         self.unflatten_parameters()
-        post_param = agent_train_sequential(self.args, logger, self.agent_param)
+        args_tmp = copy.deepcopy(self.args)
+        if epoch > 0:
+            args_tmp.t_max = epoch
+        post_param = agent_train_sequential(args_tmp, logger, self.agent_param)
         self.agent_param = post_param
         self.train_cnt += 1
         self.agent_flat = flatten_parameters(self.agent_param.agent)
 
-    def evaluate(self):
+    def evaluate(self, epoch=0):
         self.unflatten_parameters()
-
-        self.states, self.reward = agent_evaluate_sequential(self.args, logger, self.agent_param)
+        args_tmp = copy.deepcopy(self.args)
+        if epoch > 0:
+            args_tmp.test_nepisode = epoch
+        self.states, self.reward = agent_evaluate_sequential(args_tmp, logger, self.agent_param)
         self.score = self.reward * 50 + self.states
 
     def unflatten_parameters(self):
@@ -181,11 +186,11 @@ if __name__ == '__main__':
     config = json.load(open("running_args.json", "r"))
     args = conv_args(config, _log)
     p = EAPopulation(args)
-    filename = "ea_2.pkl"
-    # for i in range(4):
+    filename = "ea_3.pkl"
+    # for i in range(3):
     #     print("------- train rounds: ", i)
-    #     p.train()
-    #     p.evaluate()
+    #     p.train(epoch=30000-i*5000)
+    #     p.evaluate(epoch=64)
     #     print(p)
     #     p.save_to_file(filename)
     p = EAPopulation.load_from_file(filename)

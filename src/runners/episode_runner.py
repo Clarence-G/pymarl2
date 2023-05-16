@@ -80,7 +80,9 @@ class EpisodeRunner:
             cpu_actions = actions.to("cpu").numpy()
             
             reward, terminated, env_info = self.env.step(actions[0])
+            # save state and winning flag
             para.state_list.append(self.env.get_state())
+            para.is_win = env_info.get("battle_won", False)
             episode_return += reward
 
             post_transition_data = {
@@ -99,7 +101,6 @@ class EpisodeRunner:
             "obs": [self.env.get_obs()]
         }
         self.batch.update(last_data, ts=self.t)
-
         # Select actions in the last stored state
         if save_probs:
             actions, probs = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
