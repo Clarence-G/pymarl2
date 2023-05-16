@@ -12,7 +12,6 @@ import torch as th
 from types import SimpleNamespace as SN
 
 import utils.logging
-from ea import EA, EAPopulation
 from utils.logging import Logger
 from utils.timehelper import time_left, time_str
 from os.path import dirname, abspath
@@ -24,7 +23,7 @@ from components.episode_buffer import ReplayBuffer
 from components.transforms import OneHot
 
 from smac.env import StarCraft2Env
-from params import PreParam
+from params import AgentParam
 
 
 def get_agent_own_state_size(env_args):
@@ -79,28 +78,6 @@ def run(_run, _config, _log):
     # sys.exit(0)
 
 
-def modify_params(runner):
-    agent = runner.mac.agent
-    # 对 fc1 和 fc2 的参数增加一个随机扰动
-    fc1_weights = agent.fc1.weight
-    fc1_bias = agent.fc1.bias
-    fc2_weights = agent.fc2.weight
-    fc2_bias = agent.fc2.bias
-
-    # fc1_weights = torch.nn.parameter.Parameter(fc1_weights + torch.randn_like(fc1_weights) * 0.01,
-    #                                            requires_grad=True)
-    # fc1_bias = torch.nn.parameter.Parameter(fc1_bias + torch.randn_like(fc1_bias) * 0.01, requires_grad=True)
-    fc2_weights = th.nn.parameter.Parameter(fc2_weights + th.randn_like(fc2_weights) * 0.04,
-                                            requires_grad=True)
-    fc2_bias = th.nn.parameter.Parameter(fc2_bias + th.randn_like(fc2_bias) * 0.04, requires_grad=True)
-
-    # 将修改后的参数设置回模型
-    agent.fc1.weight = fc1_weights
-    agent.fc1.bias = fc1_bias
-    agent.fc2.weight = fc2_weights
-    agent.fc2.bias = fc2_bias
-
-
 def evaluate_sequential(args, runner):
     state_set = set()
     total_reward = 0
@@ -125,7 +102,7 @@ def evaluate_sequential(args, runner):
     return len(state_set), avg_reward
 
 
-def run_sequential(args, logger, preparam: PreParam = None):
+def run_sequential(args, logger, preparam: AgentParam = None):
     # Init runner so we can get env info
 
     runner = r_REGISTRY[args.runner](args=args, logger=logger)
@@ -250,7 +227,7 @@ def run_sequential(args, logger, preparam: PreParam = None):
     runner.close_env()
     logger.console_logger.info("Finished Training")
 
-    postParam = PreParam()
+    postParam = AgentParam()
     postParam.save_params(learner)
     return postParam
 
@@ -270,7 +247,38 @@ def args_sanity_check(config, _log):
     return config
 
 
-def my_train_sequential(args, logger, preparam: PreParam = None):
+def conv_args(config, _log):
+    # set CUDA flags
+    # config["use_cuda"] = True # Use cuda whenever possible!
+    if config["use_cuda"] and not th.cuda.is_available():
+        config["use_cuda"] = False
+        _log.warning("CUDA flag use_cuda was switched OFF automatically because no CUDA devices are available!")
+
+    if config["test_nepisode"] < config["batch_size_run"]:
+        config["test_nepisode"] = config["batch_size_run"]
+    else:
+        config["test_nepisode"] = (config["test_nepisode"] // config["batch_size_run"]) * config["batch_size_run"]
+
+        # log a
+
+    args = SN(**config)
+    args.device = "cuda" if args.use_cuda else "cpu"
+
+    # configure tensorboard bn
+    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
+    args.unique_token = unique_token
+    if args.use_tensorboard:
+        tb_logs_direc = os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "tb_logs")
+        tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)
+        logger.setup_tb(tb_exp_direc)
+
+    # log args to console in pretty json format
+    logger.console_logger.info("Experiment Parameters:\n {}".format(json.dumps(vars(args), indent=4, sort_keys=True)))
+
+    return args
+
+
+def my_train_sequential(args, logger, preparam: AgentParam = None):
     # copy args
     args = copy.deepcopy(args)
     args.runner = "parallel"
@@ -346,7 +354,7 @@ def my_train_sequential(args, logger, preparam: PreParam = None):
     runner.close_env()
     logger.console_logger.info("Finished Training")
 
-    postParam = PreParam()
+    postParam = AgentParam()
     postParam.save_params(learner)
     return postParam
 
@@ -407,33 +415,23 @@ def init_learner(args, logger, preparam):
 
 if __name__ == '__main__':
     # load from running_args.json
-    args_json = json.load(open("running_args.json", "r"))
+    config = json.load(open("running_args.json", "r"))
 
-    args = argparse.Namespace(**args_json)
     _log = utils.logging.get_logger()
     logger = utils.logging.Logger(_log)
-    args.device = "cuda" if args.use_cuda else "cpu"
+    args = conv_args(config, _log)
 
-    logger.console_logger.info("Experiment Parameters:", args_json)
-
-    # configure tensorboard bn
-    unique_token = "{}__{}".format(args.name, datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S"))
-    args.unique_token = unique_token
-    if args.use_tensorboard:
-        tb_logs_direc = os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "tb_logs")
-        tb_exp_direc = os.path.join(tb_logs_direc, "{}").format(unique_token)
-        logger.setup_tb(tb_exp_direc)
-
-    # configure results logger
-    # para = my_train_sequential(args, logger)
-    run_id = "11"
-    para = PreParam.load_params_from_file(os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "param_{}.pickle".format(run_id)))
-    learner, runner, buffer = init_learner(args, logger, para)
-    evaluate_sequential(args, runner)
-    # my_train_sequential(args, logger, para)
+    run_id = "12"
+    # para = AgentParam.load_params_from_file(
+    #     os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "param_{}.pickle".format(run_id)))
+    para = None
+    for i in range(7):
+        para = my_train_sequential(args, logger, para)
+        learner, runner, buffer = init_learner(args, logger, para)
+        evaluate_sequential(args, runner)
+        para.save_params_to_file(os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "agent_param_{}.pickle".format(run_id)))
 
     sys.exit(0)
-
 
     eval = False
 

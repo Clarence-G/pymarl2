@@ -2,16 +2,14 @@ import copy
 import pickle
 
 
-class PreParam:
-
+class AgentParam:
     def __init__(self):
-        self.target_mixer_dict = None
         self.agent = None
-        self.target_mac_dict = None
-        self.mixer_dict = None
-        self.target_mac_dict = None
         self.optimiser_dict = None
-        self.learner = None
+        # self.target_mac_dict = None
+        # self.mixer_dict = None
+        # self.target_mac_dict = None
+        # self.learner = None
 
     def save_params(self, learner):
         self.agent = copy.deepcopy(learner.mac.agent)
@@ -24,11 +22,7 @@ class PreParam:
     def load_params(self, learner):
         learner.mac.agent.load_state_dict(self.agent.state_dict())
         learner.optimiser.load_state_dict(self.optimiser_dict)
-        # # Not quite right but I don't want to save target networks
-        # learner.target_mac.agent.load_state_dict(self.target_mac_dict)
-        # if self.mixer_dict is not None:
-        #     learner.mixer.load_state_dict(self.mixer_dict)
-        #     learner.target_mixer.load_state_dict(self.target_mixer_dict)
+
 
     # save params to file path
     def save_params_to_file(self, path):
