@@ -24,6 +24,7 @@ from components.transforms import OneHot
 
 from smac.env import StarCraft2Env
 from params import AgentParam
+import utils.logging
 
 
 def get_agent_own_state_size(env_args):
@@ -78,7 +79,12 @@ def run(_run, _config, _log):
     # sys.exit(0)
 
 
-def evaluate_sequential(args, runner):
+def agent_evaluate_sequential(args, logger, param: AgentParam = None):
+    # copy args
+    args = copy.deepcopy(args)
+    args.runner = "episode"
+    args.batch_size_run = 1
+    learner, runner, buffer = init_learner(args, logger, param)
     state_set = set()
     total_reward = 0
     for _ in range(args.test_nepisode):
@@ -88,15 +94,9 @@ def evaluate_sequential(args, runner):
         total_reward += para.reward
 
     avg_reward = total_reward / args.test_nepisode
-    print("state 数量:", len(state_set))
-    print("reward:", avg_reward)
 
     if args.save_replay:
         runner.save_replay()
-
-    # write len(state_set) and avg_reward to file for analysis
-    with open("state_reward.txt", "a+") as f:
-        f.write(str(len(state_set)) + " " + str(avg_reward) + "\n")
 
     runner.close_env()
     return len(state_set), avg_reward
@@ -154,7 +154,7 @@ def run_sequential(args, logger, preparam: AgentParam = None):
         preparam.load_params(learner)
 
     if args.evaluate:
-        evaluate_sequential(args, runner)
+        agent_evaluate_sequential(args, runner)
         return
 
     # start training
@@ -273,17 +273,17 @@ def conv_args(config, _log):
         logger.setup_tb(tb_exp_direc)
 
     # log args to console in pretty json format
-    logger.console_logger.info("Experiment Parameters:\n {}".format(json.dumps(vars(args), indent=4, sort_keys=True)))
+    _log.info("Experiment Parameters:\n {}".format(json.dumps(vars(args), indent=4, sort_keys=True)))
 
     return args
 
 
-def my_train_sequential(args, logger, preparam: AgentParam = None):
+def agent_train_sequential(args, logger, param: AgentParam = None):
     # copy args
     args = copy.deepcopy(args)
     args.runner = "parallel"
     args.batch_size_run = 8
-    learner, runner, buffer = init_learner(args, logger, preparam)
+    learner, runner, buffer = init_learner(args, logger, param)
 
     # start training
     episode = 0
@@ -359,7 +359,7 @@ def my_train_sequential(args, logger, preparam: AgentParam = None):
     return postParam
 
 
-def init_learner(args, logger, preparam):
+def init_learner(args, logger, prepare: AgentParam = None):
     # Init runner so we can get env info
 
     runner = r_REGISTRY[args.runner](args=args, logger=logger)
@@ -407,8 +407,8 @@ def init_learner(args, logger, preparam):
         learner.cuda()
 
     # pre-params for loading
-    if preparam:
-        preparam.load_params(learner)
+    if prepare:
+        prepare.load_params(learner)
 
     return learner, runner, buffer
 
@@ -426,10 +426,11 @@ if __name__ == '__main__':
     #     os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "param_{}.pickle".format(run_id)))
     para = None
     for i in range(7):
-        para = my_train_sequential(args, logger, para)
+        para = agent_train_sequential(args, logger, para)
         learner, runner, buffer = init_learner(args, logger, para)
-        evaluate_sequential(args, runner)
-        para.save_params_to_file(os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results", "agent_param_{}.pickle".format(run_id)))
+        agent_evaluate_sequential(args, runner)
+        para.save_params_to_file(os.path.join(dirname(dirname(dirname(abspath(__file__)))), "results",
+                                              "agent_param_{}.pickle".format(run_id)))
 
     sys.exit(0)
 

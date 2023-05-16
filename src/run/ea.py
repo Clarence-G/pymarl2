@@ -1,69 +1,106 @@
-import torch
-import torch.nn.init as init
+import copy
+import json
+import pickle
 import random
 
-from run.params import AgentParam
+import torch
+
+from my_run import init_learner, agent_evaluate_sequential, agent_train_sequential, conv_args
+from params import AgentParam
+import utils.logging
+
+_log = utils.logging.get_logger()
+logger = utils.logging.Logger(_log)
+
+
+def flatten_parameters(agent):
+    return torch.cat([p.view(-1) for p in agent.parameters()])
 
 
 class EAPopulation:
-    def __init__(self, agent_param:AgentParam):
+    def with_param(self, agent_param: AgentParam):
+        self.agent_flat = flatten_parameters(agent_param.agent)
         self.agent_param = agent_param
-        self.agent = agent_param.agent
+        return self
+
+    def __init__(self, args):
         self.score = -1
         self.reward = -1
         self.states = -1
+        self.args = args
+        learner, _, _ = init_learner(args, logger)
+        self.agent_param = AgentParam()
+        self.agent_param.save_params(learner)
+        self.agent_flat = flatten_parameters(self.agent_param.agent)
 
-    def flatten_parameters(self):
-        return torch.cat([p.view(-1) for p in self.agent.parameters()])
+    def train(self):
+        self.unflatten_parameters()
+        post_param = agent_train_sequential(self.args, logger, self.agent_param)
+        self.agent_param = post_param
+        self.agent_flat = flatten_parameters(self.agent_param.agent)
 
-    def unflatten_parameters(self, flattened):
+    def evaluate(self):
+        self.unflatten_parameters()
+
+        self.states, self.reward = agent_evaluate_sequential(self.args, logger, self.agent_param)
+        self.score = self.reward * 50 + self.states
+
+    def unflatten_parameters(self):
+        flattened = self.agent_flat
         start_idx = 0
-        for p in self.agent.parameters():
+        for p in self.agent_param.agent.parameters():
             param_size = p.numel()
             p.data.copy_(flattened[start_idx:start_idx + param_size].view(p.size()))
             start_idx += param_size
 
-    def initialize_parameters(self):
-        for param in self.agent.parameters():
-            if param.dim() > 1:
-                init.xavier_uniform_(param)
-            else:
-                init.constant_(param, 0)
+    def random_mutation(self, mutation_rate):
+        # Create a copy of the agent's flattened parameters
+        mutated_agent_flat = self.agent_flat.clone()
 
-    def save(self, filename):
-        """
-        Save the population to a file using PyTorch's state_dict format
-        """
-        torch.save(self.agent.state_dict(), filename)
+        # Iterate over the flattened parameters and apply mutation
+        for i in range(len(mutated_agent_flat)):
+            if random.random() < mutation_rate:
+                # Apply mutation by adding a random value
+                mutated_agent_flat[i] += torch.randn(1)
 
-    def load(self, filename):
-        """
-        Load the population from a file using PyTorch's state_dict format
-        """
-        self.agent.load_state_dict(torch.load(filename))
+        # Return a new EAPopulation instance with the mutated agent
+        mutated_population = self.clone()
+        mutated_population.agent_flat = mutated_agent_flat
+        mutated_population.unflatten_parameters()
 
-    def random_mutation(self, mutation_prob=0.1, mutation_scale=0.1):
-        flattened_params = self.flatten_parameters()
-        for i in range(len(flattened_params)):
-            if random.uniform(0, 1) < mutation_prob:
-                flattened_params[i] += mutation_scale * torch.randn(1)
-        child = EAPopulation(self.agent)
-        child.unflatten_parameters(flattened_params)
+        return mutated_population
 
-        return child
+    def crossover(self, other_population):
+        # Perform crossover by mixing the flattened parameters
 
-    def crossover(self, other):
-        my_flattened_params = self.flatten_parameters()
-        other_flattened_params = other.flatten_parameters()
-        crossover_point = random.randint(0, len(my_flattened_params))
+        # Determine the crossover point (random index in the flattened parameters)
+        crossover_point = random.randint(0, len(self.agent_flat) - 1)
 
-        new_flattened_params = torch.cat(
-            [my_flattened_params[:crossover_point], other_flattened_params[crossover_point:]])
+        # Create new agent_flat by combining the parameters of self and other_population
+        new_agent_flat = torch.cat((self.agent_flat[:crossover_point], other_population.agent_flat[crossover_point:]))
 
-        child = EAPopulation(self.agent)
-        child.unflatten_parameters(new_flattened_params)
+        # Create a new agent_param with the crossover parameters
+        crossover_agent_param = self.agent_param.clone()
+        crossover_agent_param.agent.load_state_dict(new_agent_flat)
 
-        return child
+        # Return a new EAPopulation instance with the crossover agent
+        crossover_population = EAPopulation(crossover_agent_param)
+        return crossover_population
+
+    def clone(self):
+        # Create a new EAPopulation instance with the same agent parameters
+        clone_population = copy.deepcopy(self)
+        return clone_population
+
+    def save_to_file(self, path):
+        # save obj to file
+        with open(path, 'wb+') as f:
+            pickle.dump(self, f)
+
+    @classmethod
+    def load_from_file(cls, path):
+        with open(path, 'rb') as f:
+            return pickle.load(f)
 
 
 class EA:
@@ -130,3 +167,18 @@ class EA:
             print("Generation:", i, "Best Reward:",
                   sorted(self.populations, key=lambda x: x.reward, reverse=True)[0].reward)
 
+
+if __name__ == '__main__':
+
+    config = json.load(open("running_args.json", "r"))
+    args = conv_args(config, _log)
+    p = EAPopulation(args)
+    for i in range(6):
+        print(i)
+        p.train()
+        p.evaluate()
+        print("score:", p.score)
+        print("reward:", p.reward)
+        print("states:", p.states)
+        # save p to file for later use
+        p.save_to_file("ea_1.pkl")
