@@ -14,7 +14,7 @@ logger = utils.logging.Logger(_log)
 
 
 def flatten_parameters(agent):
-    return torch.cat([p.view(-1) for p in agent.parameters()])
+    return torch.cat([pu.view(-1) for pu in agent.parameters()])
 
 
 class EAPopulation:
@@ -27,6 +27,8 @@ class EAPopulation:
         self.score = -1
         self.reward = -1
         self.states = -1
+        self.train_cnt = 0
+        self.mutation_cnt = 0
         self.args = args
         learner, _, _ = init_learner(args, logger)
         self.agent_param = AgentParam()
@@ -37,6 +39,7 @@ class EAPopulation:
         self.unflatten_parameters()
         post_param = agent_train_sequential(self.args, logger, self.agent_param)
         self.agent_param = post_param
+        self.train_cnt += 1
         self.agent_flat = flatten_parameters(self.agent_param.agent)
 
     def evaluate(self):
@@ -101,6 +104,10 @@ class EAPopulation:
     def load_from_file(cls, path):
         with open(path, 'rb') as f:
             return pickle.load(f)
+
+    def __str__(self):
+        return f"score: {self.score}, reward: {self.reward}, states: {self.states}, train_cnt: {self.train_cnt}, " \
+               f"mutation_cnt: {self.mutation_cnt}"
 
 
 class EA:
@@ -173,12 +180,17 @@ if __name__ == '__main__':
     config = json.load(open("running_args.json", "r"))
     args = conv_args(config, _log)
     p = EAPopulation(args)
-    for i in range(6):
-        print(i)
+    filename = "ea_2.pkl"
+    for i in range(4):
+        print("------- train rounds: ", i)
         p.train()
         p.evaluate()
-        print("score:", p.score)
-        print("reward:", p.reward)
-        print("states:", p.states)
-        # save p to file for later use
-        p.save_to_file("ea_1.pkl")
+        print(p)
+        p.save_to_file(filename)
+    p = EAPopulation.load_from_file(filename)
+    p.evaluate()
+    print(p)
+    p1 = p.random_mutation(0.1)
+    p1.evaluate()
+    print(p1)
+
