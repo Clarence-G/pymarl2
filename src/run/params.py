@@ -23,11 +23,13 @@ class AgentParam:
         learner.mac.agent.load_state_dict(self.agent.state_dict())
         learner.optimiser.load_state_dict(self.optimiser_dict)
 
-
     # save params to file path
     def save_params_to_file(self, path):
         with open(path, 'wb') as f:
             pickle.dump(self, f)
+
+    def clone(self):
+        return copy.deepcopy(self)
 
     # load params from file path
     @classmethod
