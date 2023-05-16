@@ -56,21 +56,22 @@ class EAPopulation:
             p.data.copy_(flattened[start_idx:start_idx + param_size].view(p.size()))
             start_idx += param_size
 
-    def random_mutation(self, mutation_rate):
+    def random_mutation(self, mutation_rate=0.1, perturbation_scale=0.06):
         # Create a copy of the agent's flattened parameters
         mutated_agent_flat = self.agent_flat.clone()
 
         # Iterate over the flattened parameters and apply mutation
         for i in range(len(mutated_agent_flat)):
             if random.random() < mutation_rate:
-                # Apply mutation by adding a random value
-                mutated_agent_flat[i] += torch.randn(1)
+                # Apply mutation by adding a small perturbation
+                perturbation = torch.randn_like(mutated_agent_flat[i]) * perturbation_scale
+                mutated_agent_flat[i] += perturbation
 
         # Return a new EAPopulation instance with the mutated agent
         mutated_population = self.clone()
         mutated_population.agent_flat = mutated_agent_flat
         mutated_population.unflatten_parameters()
-
+        mutated_population.mutation_cnt += 1
         return mutated_population
 
     def crossover(self, other_population):
@@ -181,16 +182,18 @@ if __name__ == '__main__':
     args = conv_args(config, _log)
     p = EAPopulation(args)
     filename = "ea_2.pkl"
-    for i in range(4):
-        print("------- train rounds: ", i)
-        p.train()
-        p.evaluate()
-        print(p)
-        p.save_to_file(filename)
+    # for i in range(4):
+    #     print("------- train rounds: ", i)
+    #     p.train()
+    #     p.evaluate()
+    #     print(p)
+    #     p.save_to_file(filename)
     p = EAPopulation.load_from_file(filename)
-    p.evaluate()
     print(p)
-    p1 = p.random_mutation(0.1)
+    p1 = p.random_mutation()
+    p1.evaluate()
+    print(p1)
+    p1.train()
     p1.evaluate()
     print(p1)
 
