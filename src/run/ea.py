@@ -2,15 +2,16 @@ import torch
 import torch.nn.init as init
 import random
 
+from run.params import AgentParam
+
 
 class EAPopulation:
-    agent = None
-    score = 0
-    reward = 0
-    states = 0
-
-    def __init__(self, agent):
-        self.agent = agent
+    def __init__(self, agent_param:AgentParam):
+        self.agent_param = agent_param
+        self.agent = agent_param.agent
+        self.score = -1
+        self.reward = -1
+        self.states = -1
 
     def flatten_parameters(self):
         return torch.cat([p.view(-1) for p in self.agent.parameters()])
