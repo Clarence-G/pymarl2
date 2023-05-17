@@ -1,8 +1,10 @@
 from pathlib import Path
 import sys
-path_root = Path(__file__).parents[2]
-sys.path.append(str(path_root))
-print(sys.path)
+
+for i in range(3):
+    path_root = Path(__file__).parents[i]
+    print(path_root)
+    sys.path.append(str(path_root))
 
 import copy
 import json
@@ -229,7 +231,7 @@ class EA:
 
 
 if __name__ == '__main__':
-    config = json.load(open("running_args.json", "r"))
+    config = json.load(open("src/run/running_args.json", "r"))
     args = conv_args(config, _log)
     pu = EAPopulation(args)
     filename = "ea_alo_1.pkl"
