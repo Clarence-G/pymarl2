@@ -8,8 +8,8 @@ import time
 import torch as th
 from types import SimpleNamespace as SN
 
-from ..utils import logging
-from ..utils.timehelper import time_left, time_str
+from utils import logging
+from utils.timehelper import time_left, time_str
 from os.path import dirname, abspath
 
 from learners import REGISTRY as le_REGISTRY

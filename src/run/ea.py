@@ -8,11 +8,11 @@ import torch
 
 from my_run import init_learner, agent_evaluate_sequential, agent_train_sequential, conv_args
 from params import AgentParam
-import utils.logging
+from utils import logging
 from pareto import cal_all_pareto_frontier
 
-_log = utils.logging.get_logger()
-logger = utils.logging.Logger(_log)
+_log = logging.get_logger()
+logger = logging.Logger(_log)
 
 
 def flatten_parameters(agent):
