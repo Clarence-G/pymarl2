@@ -1,5 +1,6 @@
 import copy
 import json
+import os
 import pickle
 import random
 
@@ -8,6 +9,7 @@ import torch
 from my_run import init_learner, agent_evaluate_sequential, agent_train_sequential, conv_args
 from params import AgentParam
 import utils.logging
+from pareto import cal_all_pareto_frontier
 
 _log = utils.logging.get_logger()
 logger = utils.logging.Logger(_log)
@@ -19,6 +21,19 @@ def flatten_parameters(agent):
 
 def cd_select(population, n):
     return random.sample(population, n)
+
+
+def pop_select(population, n, func):
+    fronts = cal_all_pareto_frontier(population, func)
+    new_p = []
+    for front in fronts:
+        if len(new_p) + len(front) <= n:
+            new_p.extend(front)
+        else:
+            new_p.extend(cd_select(front, n - len(new_p)))
+
+    return new_p
+
 
 class EAPopulation:
     def __init__(self, args):
@@ -185,19 +200,24 @@ class EA:
             offspring_p = self.cross_mutate()
             for pp in offspring_p:
                 pp.evaluate()
-
+            print(self)
             offspring_q = [p.clone() for p in offspring_p]
             for q in offspring_q:
                 q.train()
                 q.evaluate()
 
             offspring = offspring_p + offspring_q + self.populations
-            self.populations = cd_select(offspring, self.pop_size)
+            self.populations = pop_select(offspring, self.pop_size, lambda x: (x.score, x.states))
 
             self.save_to_file(path)
+            print(self)
 
     def __str__(self):
-        return f"populations: {self.populations}, pop_size: {self.pop_size}, mutation_rate: {self.mutation_rate}, " \
+        pop_str = ""
+        for p in self.populations:
+            pop_str += str(p) + "\n"
+
+        return f"populations: {pop_str}, pop_size: {self.pop_size}, mutation_rate: {self.mutation_rate}, " \
                f"crossover_rate: {self.crossover_rate}"
 
 
@@ -206,6 +226,10 @@ if __name__ == '__main__':
     args = conv_args(config, _log)
     pu = EAPopulation(args)
     filename = "ea_alo_1.pkl"
-    ea = EA.load_from_file(filename)
+    # if filename exists, load from file else create new
+    if os.path.exists(filename):
+        ea = EA.load_from_file(filename)
+    else:
+        ea = EA(args, pop_size=10, mutation_rate=0.1, crossover_rate=0.1)
     ea.evolve(10, filename)
     print(ea)
