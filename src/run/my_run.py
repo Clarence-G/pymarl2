@@ -1,19 +1,15 @@
-import argparse
 import copy
 import datetime
 import json
 import os
-import pickle
-import pprint
+
 import sys
 import time
-import threading
 import torch as th
 from types import SimpleNamespace as SN
 
-import utils.logging
-from utils.logging import Logger
-from utils.timehelper import time_left, time_str
+from ..utils import logging
+from ..utils.timehelper import time_left, time_str
 from os.path import dirname, abspath
 
 from learners import REGISTRY as le_REGISTRY
@@ -24,7 +20,6 @@ from components.transforms import OneHot
 
 from smac.env import StarCraft2Env
 from params import AgentParam
-import utils.logging
 
 
 def get_agent_own_state_size(env_args):
@@ -361,8 +356,8 @@ if __name__ == '__main__':
     # load from running_args.json
     config = json.load(open("running_args.json", "r"))
 
-    _log = utils.logging.get_logger()
-    logger = utils.logging.Logger(_log)
+    _log = logging.get_logger()
+    logger = logging.Logger(_log)
     args = conv_args(config, _log)
 
     run_id = "12"
