@@ -1,3 +1,9 @@
+from pathlib import Path
+import sys
+path_root = Path(__file__).parents[2]
+sys.path.append(str(path_root))
+print(sys.path)
+
 import copy
 import json
 import os
@@ -11,11 +17,6 @@ from params import AgentParam
 from utils import logging
 from pareto import cal_all_pareto_frontier
 
-from pathlib import Path
-import sys
-path_root = Path(__file__).parents[2]
-sys.path.append(str(path_root))
-print(sys.path)
 
 _log = logging.get_logger()
 logger = logging.Logger(_log)
