@@ -1,30 +1,23 @@
-import argparse
 import copy
 import datetime
 import json
 import os
-import pickle
-import pprint
 import sys
 import time
-import threading
-import torch as th
+from os.path import dirname, abspath
 from types import SimpleNamespace as SN
 
-import utils.logging
-from utils.logging import Logger
-from utils.timehelper import time_left, time_str
-from os.path import dirname, abspath
+import torch as th
+from smac.env import StarCraft2Env
 
-from learners import REGISTRY as le_REGISTRY
-from runners import REGISTRY as r_REGISTRY
-from controllers import REGISTRY as mac_REGISTRY
+import utils.logging
 from components.episode_buffer import ReplayBuffer
 from components.transforms import OneHot
-
-from smac.env import StarCraft2Env
+from controllers import REGISTRY as mac_REGISTRY
+from learners import REGISTRY as le_REGISTRY
 from params import AgentParam
-import utils.logging
+from runners import REGISTRY as r_REGISTRY
+from utils.timehelper import time_left, time_str
 
 
 def get_agent_own_state_size(env_args):
