@@ -191,8 +191,12 @@ class EA:
     def random_choice(self):
         return random.choice(self.populations)
 
+    def random_sample(self, num=2):
+        return random.sample(self.populations, num)
+
     def random_pareto_selection(self):
-        x1, x2 = self.random_choice(), self.random_choice()
+        sample_lst = self.random_sample(2)
+        x1, x2 = sample_lst[0], sample_lst[1]
         x = random.choice([x1, x2])
         if x1 >= x2:
             x = x1
