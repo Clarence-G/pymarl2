@@ -3,7 +3,6 @@ import sys
 
 for i in range(3):
     path_root = Path(__file__).parents[i]
-    print(path_root)
     sys.path.append(str(path_root))
 
 import copy
@@ -49,6 +48,7 @@ class EAPopulation:
         self.score = -1
         self.reward = -1
         self.states = -1
+        self.seq_num = -1
         self.train_cnt = 0
         self.mutation_cnt = 0
         self.args = args
@@ -78,13 +78,18 @@ class EAPopulation:
         self.train_cnt += 1
         self.agent_flat = flatten_parameters(self.agent_param.agent)
 
-    def evaluate(self, epoch=0):
+    def evaluate(self, epoch=0, file=None):
         self.unflatten_parameters()
         args_tmp = copy.deepcopy(self.args)
         if epoch > 0:
             args_tmp.test_nepisode = epoch
-        self.states, self.reward = agent_evaluate_sequential(args_tmp, logger, self.agent_param)
+
+        self.states, self.reward, self.seq_num = agent_evaluate_sequential(args_tmp, logger, self.agent_param)
         self.score = self.reward * 50 + self.states
+        # save len(state_set) and avg_reward   to file
+        if file is not None:
+            with open(file, "a+") as f:
+                f.write(str(self) + "\n")
 
     def unflatten_parameters(self):
         flattened = self.agent_flat
@@ -152,21 +157,36 @@ class EAPopulation:
 
     def __str__(self):
         return f"score: {self.score}, reward: {self.reward}, states: {self.states}, train_cnt: {self.train_cnt}, " \
-               f"mutation_cnt: {self.mutation_cnt}"
+               f"mutation_cnt: {self.mutation_cnt}, seq_num: {self.seq_num}"
 
 
 class EA:
-    def __init__(self, args, pop_size, mutation_rate, crossover_rate):
+    def __init__(self, args, pop_size, mutation_rate, crossover_rate, file=None):
         self.populations = []
+        self.offspring_tmp = []
         self.pop_size = pop_size
         self.mutation_rate = mutation_rate
         self.crossover_rate = crossover_rate
 
         for i in range(self.pop_size):
             population = EAPopulation(args)
-            population.evaluate()
+            population.evaluate(file=file)
             self.populations.append(population)
         print("############ init finished ############")
+
+    def mutation_train(self, num_epochs):
+        self.offspring_tmp = []
+        for i in range(num_epochs):
+            print("############ mutation train epoch: ", i, " ############")
+            for p in self.populations:
+                p.train()
+                p.evaluate(file="mutation_train.txt")
+                if random.random() < self.mutation_rate:
+                    p = p.random_mutation()
+                    p.evaluate(file="mutation_train.txt")
+                self.offspring_tmp.append(p)
+            self.populations = self.offspring_tmp
+            self.offspring_tmp = []
 
     def random_choice(self):
         return random.choice(self.populations)
@@ -204,22 +224,32 @@ class EA:
             return pickle.load(f)
 
     def evolve(self, num_generations, path):
+        if len(self.offspring_tmp) > 0:
+            # load offspring_tmp if it is not empty
+            self.populations = pop_select(self.offspring_tmp, self.pop_size, lambda x: (x.reward, x.states))
+            self.offspring_tmp = []
+        print(self)
         for i in range(num_generations):
             print("############ evolution rounds {} ############: ".format(i))
+
             offspring_p = self.cross_mutate()
             for pp in offspring_p:
                 pp.evaluate()
             print(self)
-            offspring_q = [p.clone() for p in offspring_p]
-            for q in offspring_q:
+
+            self.offspring_tmp = offspring_p
+            for i in range(self.pop_size):
+                q = random.choice(offspring_p+self.populations).clone()
                 q.train()
                 q.evaluate()
+                self.offspring_tmp.append(q)
+                self.save_to_file(path)
 
-            offspring = offspring_p + offspring_q + self.populations
-            self.populations = pop_select(offspring, self.pop_size, lambda x: (x.score, x.states))
+            offspring = offspring_p + self.populations
+            self.populations = pop_select(offspring, self.pop_size, lambda x: (x.reward, x.states))
 
             self.save_to_file(path)
-            print(self)
+            self.offspring_tmp = []
 
     def __str__(self):
         pop_str = ""
@@ -231,10 +261,10 @@ class EA:
 
 
 if __name__ == '__main__':
-    config = json.load(open("src/run/running_args.json", "r"))
+    config = json.load(open("running_args.json", "r"))
     args = conv_args(config, _log)
     pu = EAPopulation(args)
-    filename = "ea_alo_1.pkl"
+    filename = "ea_alo_2333.pkl"
     # if filename exists, load from file else create new
     if os.path.exists(filename):
         ea = EA.load_from_file(filename)

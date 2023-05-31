@@ -1,3 +1,5 @@
+import time
+
 from envs import REGISTRY as env_REGISTRY
 from functools import partial
 from components.episode_buffer import EpisodeBatch
@@ -66,6 +68,9 @@ class ParallelRunner:
 
         # Reset the envs
         for parent_conn in self.parent_conns:
+            if self.t_env == 0:
+                # slow the first reset
+                time.sleep(1.5)
             parent_conn.send(("reset", None))
 
         pre_transition_data = {

@@ -5,6 +5,8 @@ import os
 
 import sys
 import time
+
+import numpy as np
 import torch as th
 from types import SimpleNamespace as SN
 
@@ -20,6 +22,7 @@ from components.transforms import OneHot
 
 from smac.env import StarCraft2Env
 from params import AgentParam
+from dwt import dtw_d
 
 
 def get_agent_own_state_size(env_args):
@@ -28,32 +31,85 @@ def get_agent_own_state_size(env_args):
     return 4 + sc_env.shield_bits_ally + sc_env.unit_type_bits
 
 
+def complete_list_length(lst, target_length, fill_value=None):
+    """
+    Completes a list to a specified target length by either padding or truncating it.
+
+    Args:
+        lst (list): The input list.
+        target_length (int): The desired length of the list.
+        fill_value (object, optional): The value used for padding. If None, the last element of the list is used.
+
+    Returns:
+        list: The list with a length equal to the target length.
+    """
+    if len(lst) < target_length:
+        if fill_value is None:
+            fill_value = lst[-1]
+        lst += [fill_value] * (target_length - len(lst))
+    elif len(lst) > target_length:
+        lst = lst[:target_length]
+
+    return lst
+
+
+def cal_seq_num(seq_list, threshold=10):
+    seq_num = 0
+
+    first_length = len(seq_list[0])
+    seq_arr_lst = []
+
+    for seq in seq_list:
+        complete_list_length(seq, first_length)
+        seq_arr_lst.append(np.stack(seq, axis=1))
+
+    for i in range(1, len(seq_arr_lst)):
+        for j in range(i):
+            sim = dtw_d(seq_arr_lst[i], seq_arr_lst[j], w=0.1)
+            print(sim)
+            if sim > threshold:
+                seq_num += 1
+                break
+
+    return seq_num
+
+
 def agent_evaluate_sequential(args, logger, param: AgentParam = None):
     # copy args
     args = copy.deepcopy(args)
     args.runner = "episode"
     args.batch_size_run = 1
     learner, runner, buffer = init_learner(args, logger, param)
+
+    # evaluate params init
     state_set = set()
     total_reward = 0
     winning = 0
+    seq_list = []
+
+    # start evaluate
     logger.console_logger.info("Start evaluating agent for {} episodes".format(args.test_nepisode))
     for _ in range(args.test_nepisode):
         batch, para = runner.run(test_mode=True)
         for s in para.state_list:
             state_set.add(tuple(s))
+        seq_list.append(para.state_list)
         total_reward += para.reward
         if para.is_win:
             winning += 1
 
+    # cal_seq_num
+    seq_num = cal_seq_num(seq_list, threshold=10)
+
     avg_reward = total_reward / args.test_nepisode
-    logger.console_logger.info("Winning rate: {}".format(winning / args.test_nepisode))
+    winning_rate = winning / args.test_nepisode
+    logger.console_logger.info("Winning rate: {}".format(winning_rate))
 
     if args.save_replay:
         runner.save_replay()
 
     runner.close_env()
-    return len(state_set), avg_reward
+    return len(state_set), avg_reward, seq_num
 
 
 def run_sequential(args, logger, preparam: AgentParam = None):

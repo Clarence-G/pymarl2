@@ -41,7 +41,9 @@
         "seed": 41024882,
         "state_last_action": true,
         "state_timestep_number": false,
-        "step_mul": 8
+        "step_mul": 8,
+        "window_size_x":1024,
+        "window_size_y": 768
     },
     "eps_clip": 0.2,
     "epsilon_anneal_time": 100000,
