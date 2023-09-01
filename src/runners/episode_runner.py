@@ -9,6 +9,19 @@ import torch
 from runners.params import PostParam
 
 
+def to_random_action(lst):
+    actions = []
+    for l in lst:
+        avi = []
+        for i in range(len(l)):
+            if l[i] == 1:
+                avi.append(i)
+        actions.append(random.choice(avi))
+
+    return actions
+
+
+
 class EpisodeRunner:
 
     def __init__(self, args, logger):
@@ -51,7 +64,7 @@ class EpisodeRunner:
         self.env.reset()
         self.t = 0
 
-    def run(self, test_mode=False):
+    def run(self, test_mode=False, random_action=False):
         self.reset()
         para = PostParam()
 
@@ -67,6 +80,8 @@ class EpisodeRunner:
                 "obs": [self.env.get_obs()]
             }
 
+
+
             self.batch.update(pre_transition_data, ts=self.t)
 
             # Pass the entire batch of experiences up till now to the agents
@@ -78,6 +93,9 @@ class EpisodeRunner:
                 actions = self.mac.select_actions(self.batch, t_ep=self.t, t_env=self.t_env, test_mode=test_mode)
             # Fix memory leak
             cpu_actions = actions.to("cpu").numpy()
+            if random_action:
+                cpu_actions = to_random_action(pre_transition_data["avail_actions"][0])
+                actions = torch.tensor(cpu_actions).unsqueeze(0).to(self.args.device)
             
             reward, terminated, env_info = self.env.step(actions[0])
             # save state and winning flag

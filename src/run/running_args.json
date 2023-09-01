@@ -82,7 +82,7 @@
     "t_max": 20000,
     "test_greedy": true,
     "test_interval": 5000,
-    "test_nepisode": 48,
+    "test_nepisode": 512,
     "use_cuda": false,
     "use_layer_norm": true,
     "use_orthogonal": true,

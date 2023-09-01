@@ -1,0 +1,4 @@
+2023-08-30 22:43:10	score: 19727.74724264706, reward: 5.99494485294118, states: 19428, train_cnt: 0, mutation_cnt: 0, seq_num: 511
+2023-08-30 22:45:26	score: 23760.409237132353, reward: 8.448184742647063, states: 23338, train_cnt: 0, mutation_cnt: 0, seq_num: 511
+2023-08-30 23:04:54	score: 18725.0, reward: 0.0, states: 18725, train_cnt: 0, mutation_cnt: 0, seq_num: 0
+2023-08-31 15:59:54	score: 10030.0, reward: 0.0, states: 10030, train_cnt: 0, mutation_cnt: 0, seq_num: 0

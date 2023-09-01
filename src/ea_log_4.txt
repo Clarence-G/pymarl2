@@ -1,0 +1,493 @@
+score: 3476.519914215686, reward: 6.5503982843137285, states: 3149, train_cnt: 0, mutation_cnt: 0, seq_num: 46
+score: 3575.0672487745096, reward: 2.241344975490195, states: 3463, train_cnt: 0, mutation_cnt: 0, seq_num: 47
+score: 2063.3788296568628, reward: 2.1875765931372553, states: 1954, train_cnt: 0, mutation_cnt: 0, seq_num: 45
+score: 7053.0, reward: 0.0, states: 7053, train_cnt: 0, mutation_cnt: 0, seq_num: 47
+score: 6821.0, reward: 0.0, states: 6821, train_cnt: 0, mutation_cnt: 0, seq_num: 47
+score: 2691.8241421568628, reward: 6.816482843137256, states: 2351, train_cnt: 0, mutation_cnt: 0, seq_num: 46
+score: 3853.4402573529414, reward: 5.848805147058825, states: 3561, train_cnt: 0, mutation_cnt: 0, seq_num: 47
+score: 3009.200980392157, reward: 2.424019607843135, states: 2888, train_cnt: 0, mutation_cnt: 0, seq_num: 46
+score: 5829.0, reward: 0.0, states: 5829, train_cnt: 0, mutation_cnt: 0, seq_num: 47
+score: 6815.0, reward: 0.0, states: 6815, train_cnt: 0, mutation_cnt: 0, seq_num: 46
+score: 2389.189031862745, reward: 3.943780637254902, states: 2192, train_cnt: 0, mutation_cnt: 1, seq_num: 42
+score: 2147.694240196078, reward: 0.6338848039215687, states: 2116, train_cnt: 0, mutation_cnt: 1, seq_num: 46
+score: 3540.1436887254904, reward: 3.082873774509803, states: 3386, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 1548.0, reward: 0.0, states: 1548, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 1316.0, reward: 0.0, states: 1316, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 6974.126225490196, reward: 0.3425245098039211, states: 6957, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 84.0, reward: 0.0, states: 84, train_cnt: 0, mutation_cnt: 1, seq_num: 0
+score: 7047.0, reward: 0.0, states: 7047, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 4428.6407781862745, reward: 2.7928155637254872, states: 4289, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 7049.0, reward: 0.0, states: 7049, train_cnt: 0, mutation_cnt: 1, seq_num: 47
+score: 3058.9788602941176, reward: 7.9195772058823515, states: 2663, train_cnt: 1, mutation_cnt: 1, seq_num: 47
+score: 3274.7487745098038, reward: 9.094975490196074, states: 2820, train_cnt: 1, mutation_cnt: 0, seq_num: 47
+score: 2921.2778799019607, reward: 8.24555759803921, states: 2509, train_cnt: 1, mutation_cnt: 0, seq_num: 47
+score: 3088.6443014705883, reward: 8.972886029411766, states: 2640, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 2794.294424019608, reward: 8.525888480392156, states: 2368, train_cnt: 1, mutation_cnt: 1, seq_num: 47
+score: 3337.2466299019607, reward: 8.60493259803921, states: 2907, train_cnt: 1, mutation_cnt: 1, seq_num: 47
+score: 3390.586243872549, reward: 8.831724877450975, states: 2949, train_cnt: 1, mutation_cnt: 1, seq_num: 47
+score: 3060.372089460784, reward: 8.647441789215685, states: 2628, train_cnt: 2, mutation_cnt: 0, seq_num: 47
+score: 3156.5816482843134, reward: 7.031632965686271, states: 2805, train_cnt: 1, mutation_cnt: 0, seq_num: 47
+score: 3562.6997549019607, reward: 8.393995098039216, states: 3143, train_cnt: 2, mutation_cnt: 0, seq_num: 47
+score: 4269.7107843137255, reward: 3.914215686274505, states: 4074, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 4234.463388480392, reward: 4.509267769607839, states: 4009, train_cnt: 2, mutation_cnt: 2, seq_num: 46
+score: 5343.6902573529405, reward: 4.973805147058818, states: 5095, train_cnt: 2, mutation_cnt: 2, seq_num: 47
+score: 3465.0332414215686, reward: 2.720664828431372, states: 3329, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 3758.043964460784, reward: 1.4208792892156854, states: 3687, train_cnt: 1, mutation_cnt: 2, seq_num: 47
+score: 1929.6875, reward: 0.09374999999999985, states: 1925, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 3229.3893995098038, reward: 8.227787990196076, states: 2818, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 3780.8688725490197, reward: 7.53737745098039, states: 3404, train_cnt: 1, mutation_cnt: 2, seq_num: 47
+score: 5110.84375, reward: 6.296874999999996, states: 4796, train_cnt: 1, mutation_cnt: 2, seq_num: 47
+score: 4568.919270833333, reward: 5.17838541666666, states: 4310, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 4231.667738970588, reward: 9.453354779411763, states: 3759, train_cnt: 2, mutation_cnt: 0, seq_num: 47
+score: 3112.918351715686, reward: 7.218367034313722, states: 2752, train_cnt: 3, mutation_cnt: 1, seq_num: 47
+score: 2957.6159620098038, reward: 7.872319240196075, states: 2564, train_cnt: 3, mutation_cnt: 1, seq_num: 47
+score: 3348.2982536764703, reward: 9.02596507352941, states: 2897, train_cnt: 3, mutation_cnt: 1, seq_num: 47
+score: 2930.3563112745096, reward: 8.667126225490193, states: 2497, train_cnt: 3, mutation_cnt: 1, seq_num: 47
+score: 3460.3195465686276, reward: 8.766390931372548, states: 3022, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 2759.6783088235293, reward: 7.993566176470584, states: 2360, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 2687.413756127451, reward: 9.168275122549018, states: 2229, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 4703.341911764705, reward: 7.626838235294112, states: 4322, train_cnt: 3, mutation_cnt: 1, seq_num: 47
+score: 3539.616881127451, reward: 9.332337622549018, states: 3073, train_cnt: 3, mutation_cnt: 1, seq_num: 47
+score: 4002.2763480392155, reward: 5.145526960784309, states: 3745, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3375.951286764706, reward: 9.119025735294116, states: 2920, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3631.0484068627447, reward: 5.560968137254896, states: 3353, train_cnt: 2, mutation_cnt: 2, seq_num: 47
+score: 3841.3425245098038, reward: 2.766850490196076, states: 3703, train_cnt: 2, mutation_cnt: 2, seq_num: 47
+score: 2483.419730392157, reward: 8.408394607843135, states: 2063, train_cnt: 2, mutation_cnt: 2, seq_num: 47
+score: 3369.0238970588234, reward: 5.960477941176465, states: 3071, train_cnt: 2, mutation_cnt: 2, seq_num: 46
+score: 6399.386948529412, reward: 0.667738970588235, states: 6366, train_cnt: 1, mutation_cnt: 1, seq_num: 47
+score: 2638.8307291666665, reward: 8.69661458333333, states: 2204, train_cnt: 2, mutation_cnt: 2, seq_num: 47
+score: 2477.372549019608, reward: 6.627450980392161, states: 2146, train_cnt: 2, mutation_cnt: 2, seq_num: 46
+score: 4618.165747549019, reward: 3.6233149509803915, states: 4437, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 3379.1291360294117, reward: 9.382582720588234, states: 2910, train_cnt: 3, mutation_cnt: 0, seq_num: 47
+score: 3215.3445159313724, reward: 8.84689031862745, states: 2773, train_cnt: 4, mutation_cnt: 1, seq_num: 47
+score: 3410.1910232843134, reward: 9.02382046568627, states: 2959, train_cnt: 3, mutation_cnt: 0, seq_num: 47
+score: 6413.191482843137, reward: 2.0038296568627443, states: 6313, train_cnt: 2, mutation_cnt: 1, seq_num: 47
+score: 2954.8040747549016, reward: 9.856081495098037, states: 2462, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3310.7159926470586, reward: 10.354319852941176, states: 2793, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 2931.865042892157, reward: 9.537300857843137, states: 2455, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3467.732077205882, reward: 11.154641544117645, states: 2910, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 2832.8835784313724, reward: 6.897671568627445, states: 2488, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3299.6985294117644, reward: 9.11397058823529, states: 2844, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 4071.0890012254904, reward: 9.461780024509803, states: 3598, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 2766.543351715686, reward: 9.030867034313722, states: 2315, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2776.0442708333335, reward: 8.740885416666666, states: 2339, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 3294.563419117647, reward: 9.991268382352942, states: 2795, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 2520.6708026960787, reward: 6.6534160539215685, states: 2188, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3097.041973039216, reward: 9.340839460784315, states: 2630, train_cnt: 2, mutation_cnt: 2, seq_num: 47
+score: 3048.969056372549, reward: 9.679381127450982, states: 2565, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 3362.8339460784314, reward: 9.556678921568624, states: 2885, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 5110.636029411765, reward: 3.8327205882352886, states: 4919, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 2888.272824754902, reward: 8.965456495098039, states: 2440, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 3398.9707414215686, reward: 8.43941482843137, states: 2977, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 3058.342524509804, reward: 8.766850490196079, states: 2620, train_cnt: 5, mutation_cnt: 2, seq_num: 47
+score: 3614.070618872549, reward: 10.76141237745098, states: 3076, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 3278.690716911765, reward: 9.953814338235299, states: 2781, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3465.5332414215686, reward: 9.470664828431373, states: 2992, train_cnt: 4, mutation_cnt: 0, seq_num: 47
+score: 3718.541819852941, reward: 10.930836397058819, states: 3172, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 3260.0421262254904, reward: 10.000842524509805, states: 2760, train_cnt: 3, mutation_cnt: 2, seq_num: 47
+score: 3028.7132352941176, reward: 9.974264705882353, states: 2530, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3245.8293504901962, reward: 9.756587009803923, states: 2758, train_cnt: 4, mutation_cnt: 2, seq_num: 47
+score: 3172.974417892157, reward: 9.779488357843135, states: 2684, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 2893.95618872549, reward: 9.239123774509801, states: 2432, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 3609.6516544117644, reward: 9.653033088235292, states: 3127, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 3669.570006127451, reward: 10.871400122549021, states: 3126, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 3918.5957414215686, reward: 8.751914828431369, states: 3481, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 3464.1219362745096, reward: 9.862438725490197, states: 2971, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2624.3147977941176, reward: 8.806295955882353, states: 2184, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2953.1588541666665, reward: 8.923177083333332, states: 2507, train_cnt: 3, mutation_cnt: 3, seq_num: 47
+score: 3267.2958026960787, reward: 10.46591605392157, states: 2744, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2562.0389093137255, reward: 8.640778186274508, states: 2130, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2596.467677696078, reward: 8.489353553921566, states: 2172, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 3453.5091911764707, reward: 10.850183823529411, states: 2911, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 2787.8132659313724, reward: 9.45626531862745, states: 2315, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2675.3223039215686, reward: 9.14644607843137, states: 2218, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 4131.034007352941, reward: 13.020680147058824, states: 3480, train_cnt: 5, mutation_cnt: 2, seq_num: 47
+score: 2611.1755514705883, reward: 8.863511029411763, states: 2168, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3667.904411764706, reward: 11.158088235294118, states: 3110, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3947.828125, reward: 11.976562499999998, states: 3349, train_cnt: 5, mutation_cnt: 2, seq_num: 47
+score: 3152.4695159313724, reward: 10.409390318627452, states: 2632, train_cnt: 5, mutation_cnt: 2, seq_num: 47
+score: 2829.8195465686276, reward: 9.51639093137255, states: 2354, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 3760.4701286764707, reward: 11.549402573529413, states: 3183, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3333.7175245098038, reward: 9.954350490196074, states: 2836, train_cnt: 5, mutation_cnt: 4, seq_num: 47
+score: 2836.1907169117644, reward: 8.703814338235292, states: 2401, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 3458.6994485294117, reward: 10.573988970588234, states: 2930, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 2794.4106924019607, reward: 9.468213848039213, states: 2321, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 3269.7599571078435, reward: 10.775199142156866, states: 2731, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 2994.530943627451, reward: 9.570618872549018, states: 2516, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3524.3889399509803, reward: 11.247778799019608, states: 2962, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 4248.97349877451, reward: 10.319469975490193, states: 3733, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 2539.8650428921565, reward: 9.037300857843134, states: 2088, train_cnt: 4, mutation_cnt: 3, seq_num: 47
+score: 2991.276194852941, reward: 9.485523897058819, states: 2517, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 2817.723651960784, reward: 9.854473039215684, states: 2325, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 2836.0029105392155, reward: 9.040058210784313, states: 2384, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3942.3916973039213, reward: 11.62783394607843, states: 3361, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3992.949601715686, reward: 11.858992034313724, states: 3400, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3881.941023284314, reward: 11.898820465686276, states: 3287, train_cnt: 5, mutation_cnt: 2, seq_num: 47
+score: 3976.7234987745096, reward: 12.194469975490195, states: 3367, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 4140.299785539216, reward: 13.125995710784315, states: 3484, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 3511.643841911765, reward: 10.992876838235295, states: 2962, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3494.6524203431372, reward: 10.953048406862749, states: 2947, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3783.1367953431372, reward: 11.382735906862743, states: 3214, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3732.3265931372553, reward: 11.126531862745102, states: 3176, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3475.457414215686, reward: 9.269148284313726, states: 3012, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 4014.2663909313724, reward: 11.24532781862745, states: 3452, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 3402.379595588235, reward: 9.987591911764707, states: 2903, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3288.1907169117644, reward: 10.203814338235292, states: 2778, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3452.998774509804, reward: 10.719975490196079, states: 2917, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 2929.6599264705883, reward: 8.793198529411764, states: 2490, train_cnt: 7, mutation_cnt: 5, seq_num: 47
+score: 3207.1755514705883, reward: 9.363511029411764, states: 2739, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3012.0248161764703, reward: 9.42049632352941, states: 2541, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3188.4419424019607, reward: 10.608838848039214, states: 2658, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 4263.247395833333, reward: 13.404947916666666, states: 3593, train_cnt: 6, mutation_cnt: 2, seq_num: 47
+score: 4091.8111213235293, reward: 11.716222426470589, states: 3506, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3687.798713235294, reward: 11.755974264705884, states: 3100, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3656.966299019608, reward: 11.29932598039216, states: 3092, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 4299.611519607844, reward: 13.232230392156866, states: 3638, train_cnt: 8, mutation_cnt: 3, seq_num: 47
+score: 3999.6495098039213, reward: 10.41299019607843, states: 3479, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4386.92049632353, reward: 14.458409926470592, states: 3664, train_cnt: 6, mutation_cnt: 2, seq_num: 47
+score: 3806.2251838235293, reward: 11.704503676470587, states: 3221, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3936.797181372549, reward: 11.655943627450979, states: 3354, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4005.24693627451, reward: 12.424938725490199, states: 3384, train_cnt: 6, mutation_cnt: 2, seq_num: 47
+score: 3667.064031862745, reward: 9.881280637254902, states: 3173, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4267.61580882353, reward: 11.712316176470587, states: 3682, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3707.889093137255, reward: 11.157781862745098, states: 3150, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3442.107077205882, reward: 10.342141544117645, states: 2925, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 3562.772212009804, reward: 9.575444240196079, states: 3084, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3889.9977022058824, reward: 13.099954044117647, states: 3235, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 2881.4937193627447, reward: 9.189874387254898, states: 2422, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4100.568167892157, reward: 10.451363357843137, states: 3578, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3612.213694852941, reward: 10.704273897058819, states: 3077, train_cnt: 5, mutation_cnt: 3, seq_num: 47
+score: 3264.6654411764707, reward: 10.553308823529415, states: 2737, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3947.055300245098, reward: 11.76110600490196, states: 3359, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 4197.425704656863, reward: 12.648514093137258, states: 3565, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 4188.409466911765, reward: 11.688189338235295, states: 3604, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 4231.065870098039, reward: 12.301317401960786, states: 3616, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4513.681372549019, reward: 13.693627450980392, states: 3829, train_cnt: 9, mutation_cnt: 3, seq_num: 47
+score: 3257.381280637255, reward: 11.247625612745097, states: 2695, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 4082.180912990196, reward: 13.463618259803921, states: 3409, train_cnt: 6, mutation_cnt: 2, seq_num: 47
+score: 4380.600030637255, reward: 13.232000612745097, states: 3719, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 4254.132199754902, reward: 12.582643995098033, states: 3625, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3948.1208639705883, reward: 10.742417279411768, states: 3411, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 3978.119025735294, reward: 12.822380514705886, states: 3337, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3648.915287990196, reward: 10.018305759803917, states: 3148, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 3238.1378676470586, reward: 10.002757352941172, states: 2738, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3688.2706801470586, reward: 9.225413602941174, states: 3227, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3602.7977941176473, reward: 10.295955882352946, states: 3088, train_cnt: 8, mutation_cnt: 5, seq_num: 47
+score: 2801.4079350490197, reward: 8.58815870098039, states: 2372, train_cnt: 6, mutation_cnt: 4, seq_num: 47
+score: 3597.3751531862745, reward: 10.34750306372549, states: 3080, train_cnt: 7, mutation_cnt: 4, seq_num: 47
+score: 3442.4917279411766, reward: 10.60983455882353, states: 2912, train_cnt: 8, mutation_cnt: 5, seq_num: 47
+score: 3705.723345588235, reward: 11.034466911764705, states: 3154, train_cnt: 8, mutation_cnt: 4, seq_num: 47
+score: 3861.356158088235, reward: 11.007123161764705, states: 3311, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4302.644148284314, reward: 12.812882965686278, states: 3662, train_cnt: 6, mutation_cnt: 2, seq_num: 47
+score: 4521.923713235294, reward: 13.318474264705882, states: 3856, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 4360.884344362745, reward: 14.697686887254903, states: 3626, train_cnt: 10, mutation_cnt: 4, seq_num: 47
+score: 4146.726102941177, reward: 13.414522058823529, states: 3476, train_cnt: 10, mutation_cnt: 4, seq_num: 47
+score: 4279.331954656863, reward: 14.226639093137257, states: 3568, train_cnt: 7, mutation_cnt: 2, seq_num: 47
+score: 3909.3573835784314, reward: 13.287147671568631, states: 3245, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 4199.983762254902, reward: 13.539675245098039, states: 3523, train_cnt: 7, mutation_cnt: 2, seq_num: 47
+score: 4574.742953431372, reward: 13.514859068627457, states: 3899, train_cnt: 8, mutation_cnt: 2, seq_num: 47
+score: 4321.5001531862745, reward: 12.910003063725496, states: 3676, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 4076.267616421569, reward: 12.525352328431376, states: 3450, train_cnt: 10, mutation_cnt: 3, seq_num: 47
+score: 3387.050091911765, reward: 11.821001838235297, states: 2796, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 2980.960324754902, reward: 9.059206495098039, states: 2528, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3320.540900735294, reward: 10.470818014705882, states: 2797, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+score: 4742.341145833334, reward: 14.326822916666671, states: 4026, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+score: 4625.675551470588, reward: 11.113511029411766, states: 4070, train_cnt: 8, mutation_cnt: 3, seq_num: 47
+score: 4540.7735906862745, reward: 12.01547181372549, states: 3940, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 3761.3995098039213, reward: 10.78799019607843, states: 3222, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3790.7140012254904, reward: 10.774280024509807, states: 3252, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+score: 3885.8716299019607, reward: 10.917432598039218, states: 3340, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 3367.6626838235293, reward: 10.173253676470589, states: 2859, train_cnt: 9, mutation_cnt: 4, seq_num: 47
+score: 4437.494791666666, reward: 12.309895833333329, states: 3822, train_cnt: 10, mutation_cnt: 4, seq_num: 47
+score: 4350.641237745098, reward: 13.77282475490196, states: 3662, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+score: 4328.687193627451, reward: 13.773743872549026, states: 3640, train_cnt: 10, mutation_cnt: 3, seq_num: 47
+score: 4379.954810049019, reward: 14.299096200980392, states: 3665, train_cnt: 10, mutation_cnt: 4, seq_num: 47
+score: 4473.502297794118, reward: 15.150045955882353, states: 3716, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+score: 4389.767463235294, reward: 13.115349264705884, states: 3734, train_cnt: 11, mutation_cnt: 3, seq_num: 47
+score: 3695.248774509804, reward: 10.844975490196084, states: 3153, train_cnt: 10, mutation_cnt: 4, seq_num: 47
+score: 4148.453737745098, reward: 13.929074754901963, states: 3452, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+score: 3497.2325367647063, reward: 10.884650735294121, states: 2953, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+score: 4464.23575367647, reward: 13.744715073529415, states: 3777, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+score: 3235.3227634803925, reward: 9.626455269607845, states: 2754, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+score: 4249.70450367647, reward: 11.354090073529408, states: 3682, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+score: 3930.7170649509803, reward: 11.474341299019606, states: 3357, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 3354.2414215686276, reward: 10.16482843137255, states: 2846, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+score: 3698.377450980392, reward: 9.747549019607842, states: 3211, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+score: 3788.286458333333, reward: 11.705729166666666, states: 3203, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 4568.217984068628, reward: 13.184359681372548, states: 3909, train_cnt: 10, mutation_cnt: 6, seq_num: 47
+score: 2884.2329963235293, reward: 8.864659926470587, states: 2441, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+score: 3596.632199754902, reward: 9.832643995098039, states: 3105, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+score: 3649.039828431373, reward: 11.600796568627457, states: 3069, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+score: 4274.752297794118, reward: 13.275045955882353, states: 3611, train_cnt: 12, mutation_cnt: 4, seq_num: 47
+score: 4206.155330882353, reward: 14.243106617647067, states: 3494, train_cnt: 8, mutation_cnt: 2, seq_num: 47
+score: 4666.832261029412, reward: 14.796645220588237, states: 3927, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+score: 4180.618259803921, reward: 12.272365196078432, states: 3567, train_cnt: 8, mutation_cnt: 3, seq_num: 47
+score: 3911.5867034313724, reward: 11.811734068627452, states: 3321, train_cnt: 8, mutation_cnt: 3, seq_num: 47
+score: 3854.802236519608, reward: 11.936044730392156, states: 3258, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+score: 4042.1427696078435, reward: 12.122855392156866, states: 3436, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+score: 4386.855085784314, reward: 14.137101715686272, states: 3680, train_cnt: 12, mutation_cnt: 4, seq_num: 47
+score: 4393.6225490196075, reward: 15.752450980392156, states: 3606, train_cnt: 12, mutation_cnt: 4, seq_num: 47
+score: 4673.75137867647, reward: 15.315027573529413, states: 3908, train_cnt: 7, mutation_cnt: 2, seq_num: 47
+2023-08-26 01:24:50	score: 4204.503982843137, reward: 12.410079656862747, states: 3584, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 01:25:11	score: 3506.2486213235293, reward: 10.184972426470589, states: 2997, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:25:35	score: 4089.312193627451, reward: 13.08624387254902, states: 3435, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:25:58	score: 4287.767156862746, reward: 12.295343137254905, states: 3673, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 01:26:18	score: 3575.341605392157, reward: 10.80683210784314, states: 3035, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:26:39	score: 3524.0946691176473, reward: 10.881893382352944, states: 2980, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:26:59	score: 3311.929381127451, reward: 10.23858762254902, states: 2800, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:27:20	score: 3591.682904411765, reward: 11.293658088235295, states: 3027, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 01:27:43	score: 4417.373468137255, reward: 13.587469362745097, states: 3738, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:28:06	score: 4051.083026960784, reward: 8.221660539215685, states: 3640, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:30:59	score: 3652.183210784314, reward: 10.863664215686278, states: 3109, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:34:30	score: 4423.205116421569, reward: 14.244102328431374, states: 3711, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:37:51	score: 4697.949754901961, reward: 14.018995098039214, states: 3997, train_cnt: 11, mutation_cnt: 4, seq_num: 47
+2023-08-26 01:41:12	score: 4695.40487132353, reward: 14.388097426470589, states: 3976, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:44:49	score: 3681.238664215686, reward: 10.784773284313724, states: 3142, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:48:26	score: 3456.8665747549016, reward: 10.137331495098037, states: 2950, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:51:47	score: 4310.394761029412, reward: 14.327895220588239, states: 3594, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:55:05	score: 4612.196844362746, reward: 14.103936887254905, states: 3907, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 01:58:31	score: 4377.784466911765, reward: 14.875689338235295, states: 3634, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:01:57	score: 4753.813112745098, reward: 13.796262254901963, states: 4064, train_cnt: 7, mutation_cnt: 2, seq_num: 47
+2023-08-26 02:02:19	score: 3676.4759497549016, reward: 8.629518995098033, states: 3245, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:02:38	score: 3384.2849264705883, reward: 9.605698529411766, states: 2904, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 02:02:58	score: 3283.5548406862745, reward: 10.031096813725494, states: 2782, train_cnt: 6, mutation_cnt: 3, seq_num: 47
+2023-08-26 02:03:20	score: 3206.953125, reward: 10.039062500000002, states: 2705, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:03:43	score: 4657.809589460785, reward: 15.11619178921569, states: 3902, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:04:05	score: 3981.236213235294, reward: 11.224724264705882, states: 3420, train_cnt: 12, mutation_cnt: 6, seq_num: 47
+2023-08-26 02:04:26	score: 3659.4132965686276, reward: 11.188265931372548, states: 3100, train_cnt: 10, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:04:44	score: 3103.7840073529414, reward: 9.395680147058824, states: 2634, train_cnt: 12, mutation_cnt: 6, seq_num: 47
+2023-08-26 02:05:02	score: 2663.572150735294, reward: 8.111443014705882, states: 2258, train_cnt: 11, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:05:24	score: 4096.841911764706, reward: 11.876838235294118, states: 3503, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 02:08:54	score: 4477.64231004902, reward: 15.892846200980395, states: 3683, train_cnt: 12, mutation_cnt: 4, seq_num: 47
+2023-08-26 02:12:39	score: 3839.7924325980393, reward: 11.195848651960782, states: 3280, train_cnt: 8, mutation_cnt: 3, seq_num: 47
+2023-08-26 02:16:37	score: 3986.3501838235293, reward: 10.267003676470589, states: 3473, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 02:20:12	score: 4201.71875, reward: 11.234374999999995, states: 3640, train_cnt: 13, mutation_cnt: 6, seq_num: 47
+2023-08-26 02:23:44	score: 4618.077359068628, reward: 16.301547181372552, states: 3803, train_cnt: 13, mutation_cnt: 4, seq_num: 47
+2023-08-26 02:27:09	score: 4591.539828431372, reward: 15.35079656862745, states: 3824, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:30:45	score: 4363.892156862745, reward: 12.357843137254903, states: 3746, train_cnt: 9, mutation_cnt: 3, seq_num: 47
+2023-08-26 02:34:04	score: 4380.2238051470595, reward: 15.764476102941181, states: 3592, train_cnt: 14, mutation_cnt: 4, seq_num: 47
+2023-08-26 02:37:28	score: 4656.791360294118, reward: 15.575827205882353, states: 3878, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:40:49	score: 4595.327665441177, reward: 15.24655330882353, states: 3833, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:41:12	score: 4354.790134803921, reward: 13.295802696078432, states: 3690, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:41:35	score: 3879.823835784314, reward: 10.996476715686276, states: 3330, train_cnt: 13, mutation_cnt: 6, seq_num: 47
+2023-08-26 02:41:58	score: 4605.565870098039, reward: 14.55131740196079, states: 3878, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:42:17	score: 3198.625919117647, reward: 9.77251838235294, states: 2710, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:42:38	score: 3927.6522671568628, reward: 12.293045343137253, states: 3313, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:43:01	score: 3943.8429840686276, reward: 9.49685968137255, states: 3469, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:43:22	score: 3889.8823529411766, reward: 13.117647058823527, states: 3234, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:43:46	score: 3637.359681372549, reward: 10.187193627450979, states: 3128, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:44:08	score: 3759.509344362745, reward: 10.010186887254902, states: 3259, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:44:30	score: 4351.445925245098, reward: 12.76891850490196, states: 3713, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:48:55	score: 3285.9880514705883, reward: 10.019761029411763, states: 2785, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:52:35	score: 3884.4411764705883, reward: 9.808823529411763, states: 3394, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 02:56:05	score: 4349.343443627451, reward: 13.226868872549021, states: 3688, train_cnt: 12, mutation_cnt: 4, seq_num: 47
+2023-08-26 03:00:05	score: 4156.3592218137255, reward: 13.207184436274515, states: 3496, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:03:54	score: 3781.5010723039213, reward: 11.87002144607843, states: 3188, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:07:30	score: 3776.9367340686276, reward: 9.918734681372548, states: 3281, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:11:21	score: 4343.8725490196075, reward: 10.377450980392156, states: 3825, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:15:01	score: 4377.88143382353, reward: 15.157628676470587, states: 3620, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:18:53	score: 4386.124693627451, reward: 12.74249387254902, states: 3749, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:22:50	score: 3631.041973039216, reward: 11.840839460784315, states: 3039, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:23:13	score: 4363.0131740196075, reward: 12.260263480392155, states: 3750, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 03:23:32	score: 3060.487591911765, reward: 9.289751838235295, states: 2596, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 03:23:56	score: 4748.3175551470595, reward: 14.18635110294118, states: 4039, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:24:18	score: 4317.033394607844, reward: 13.380667892156865, states: 3648, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:24:39	score: 3844.2876838235293, reward: 10.985753676470585, states: 3295, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:25:00	score: 4003.674785539216, reward: 10.313495710784315, states: 3488, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:25:20	score: 3275.143535539216, reward: 9.922870710784315, states: 2779, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 03:25:42	score: 4261.045649509804, reward: 9.680912990196076, states: 3777, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:26:05	score: 3960.860294117647, reward: 10.577205882352942, states: 3432, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:26:26	score: 3815.302542892157, reward: 11.006050857843137, states: 3265, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:29:52	score: 4611.186427696079, reward: 14.723728553921568, states: 3875, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:33:22	score: 4017.8635110294117, reward: 10.437270220588236, states: 3496, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:36:54	score: 3948.2570465686276, reward: 11.485140931372554, states: 3374, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:40:16	score: 3940.0617340686276, reward: 9.481234681372548, states: 3466, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:43:25	score: 4479.070618872549, reward: 12.26141237745098, states: 3866, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:46:56	score: 4595.545189950981, reward: 14.950903799019613, states: 3848, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:50:35	score: 4271.858302696079, reward: 12.49716605392157, states: 3647, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:54:04	score: 4693.612591911765, reward: 14.852251838235297, states: 3951, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 03:57:51	score: 4002.554074754902, reward: 11.23108149509804, states: 3441, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:01:13	score: 4881.839920343137, reward: 14.296798406862743, states: 4167, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:01:37	score: 4653.9529718137255, reward: 12.87905943627451, states: 4010, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:02:02	score: 4909.508731617647, reward: 13.37017463235294, states: 4241, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:02:24	score: 3816.42662377451, reward: 12.608532475490199, states: 3186, train_cnt: 12, mutation_cnt: 6, seq_num: 47
+2023-08-26 04:02:43	score: 3348.28431372549, reward: 10.965686274509801, states: 2800, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 04:03:05	score: 4118.965226715686, reward: 10.179304534313722, states: 3610, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 04:03:27	score: 3990.2761948529414, reward: 13.485523897058826, states: 3316, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:03:50	score: 3537.167279411765, reward: 11.223345588235295, states: 2976, train_cnt: 7, mutation_cnt: 3, seq_num: 47
+2023-08-26 04:04:12	score: 4328.2576593137255, reward: 12.625153186274511, states: 3697, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:04:37	score: 4822.10631127451, reward: 12.042126225490193, states: 4220, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:04:58	score: 3971.5039828431372, reward: 13.410079656862747, states: 3301, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:08:29	score: 4486.000919117647, reward: 15.460018382352944, states: 3713, train_cnt: 13, mutation_cnt: 4, seq_num: 47
+2023-08-26 04:12:00	score: 4748.085324754902, reward: 16.621706495098042, states: 3917, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:15:23	score: 4427.686274509804, reward: 15.813725490196076, states: 3637, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:18:55	score: 4513.680300245098, reward: 14.573606004901963, states: 3785, train_cnt: 14, mutation_cnt: 4, seq_num: 47
+2023-08-26 04:22:40	score: 3965.544270833333, reward: 10.990885416666666, states: 3416, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 04:26:08	score: 4420.867647058823, reward: 16.257352941176475, states: 3608, train_cnt: 14, mutation_cnt: 4, seq_num: 47
+2023-08-26 04:30:12	score: 3656.5502450980393, reward: 11.731004901960786, states: 3070, train_cnt: 8, mutation_cnt: 3, seq_num: 47
+2023-08-26 04:33:55	score: 4104.971660539216, reward: 12.399433210784316, states: 3485, train_cnt: 9, mutation_cnt: 3, seq_num: 47
+2023-08-26 04:37:24	score: 4605.246017156863, reward: 15.964920343137258, states: 3807, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:40:55	score: 4335.973958333334, reward: 14.799479166666671, states: 3596, train_cnt: 14, mutation_cnt: 4, seq_num: 47
+2023-08-26 04:41:20	score: 4840.825520833333, reward: 13.756510416666664, states: 4153, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:41:44	score: 4716.563572303921, reward: 15.651271446078434, states: 3934, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:42:06	score: 4024.5729166666665, reward: 10.91145833333333, states: 3479, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 04:42:29	score: 4305.3123468137255, reward: 11.746246936274508, states: 3718, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:42:49	score: 3425.001072303922, reward: 11.620021446078434, states: 2844, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:43:08	score: 3141.5903799019607, reward: 8.651807598039213, states: 2709, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:43:31	score: 4496.82337622549, reward: 12.516467524509805, states: 3871, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:43:51	score: 3654.3373161764707, reward: 10.826746323529411, states: 3113, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 04:44:12	score: 3656.356158088235, reward: 12.007123161764703, states: 3056, train_cnt: 13, mutation_cnt: 6, seq_num: 47
+2023-08-26 04:44:34	score: 4260.363051470588, reward: 14.707261029411766, states: 3525, train_cnt: 12, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:48:02	score: 4510.607383578432, reward: 16.41214767156863, states: 3690, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:51:26	score: 4737.55330882353, reward: 14.431066176470585, states: 4016, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 04:54:52	score: 4630.779411764706, reward: 17.095588235294123, states: 3776, train_cnt: 14, mutation_cnt: 4, seq_num: 47
+2023-08-26 04:58:21	score: 4473.344362745098, reward: 17.186887254901965, states: 3614, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 05:01:52	score: 4482.269761029412, reward: 16.265395220588236, states: 3669, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 05:05:25	score: 4778.716452205883, reward: 15.83432904411765, states: 3987, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:08:50	score: 4615.440870098039, reward: 15.488817401960787, states: 3841, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:12:23	score: 4510.829963235294, reward: 16.39659926470588, states: 3691, train_cnt: 14, mutation_cnt: 4, seq_num: 47
+2023-08-26 05:15:50	score: 4847.253829656863, reward: 16.625076593137255, states: 4016, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:19:20	score: 4485.550857843137, reward: 15.871017156862747, states: 3692, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 05:19:42	score: 3967.297181372549, reward: 13.405943627450982, states: 3297, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:20:00	score: 2898.877450980392, reward: 8.99754901960784, states: 2449, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:20:22	score: 4118.628523284314, reward: 12.492570465686278, states: 3494, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:20:47	score: 4658.347426470588, reward: 14.88694852941177, states: 3914, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:21:09	score: 3961.8451286764707, reward: 12.236902573529415, states: 3350, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:21:34	score: 4435.8230698529405, reward: 9.696461397058815, states: 3951, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:21:55	score: 4022.7179840686276, reward: 12.93435968137255, states: 3376, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:22:17	score: 3945.399050245098, reward: 11.307981004901963, states: 3380, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:22:42	score: 5050.377297794118, reward: 12.587545955882357, states: 4421, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:23:00	score: 3162.7363664215686, reward: 10.13472732843137, states: 2656, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:26:37	score: 4551.47518382353, reward: 14.829503676470594, states: 3810, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:29:58	score: 5071.865655637255, reward: 13.177313112745102, states: 4413, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:33:33	score: 4476.82674632353, reward: 14.536534926470587, states: 3750, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:36:55	score: 4644.708486519608, reward: 16.51416973039216, states: 3819, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:40:23	score: 5004.175857843137, reward: 15.183517156862747, states: 4245, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 05:43:55	score: 4501.092218137255, reward: 15.321844362745102, states: 3735, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 05:47:23	score: 4796.891850490196, reward: 15.037837009803921, states: 4045, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:50:54	score: 4941.420649509804, reward: 15.868412990196077, states: 4148, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:54:26	score: 4749.759037990196, reward: 15.815180759803923, states: 3959, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 05:57:55	score: 4609.451133578432, reward: 15.209022671568627, states: 3849, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:58:17	score: 3797.2617953431372, reward: 9.945235906862743, states: 3300, train_cnt: 13, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:58:37	score: 3420.5398284313724, reward: 9.85079656862745, states: 2928, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:58:59	score: 4271.000612745098, reward: 12.640012254901961, states: 3639, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:59:20	score: 3837.584865196078, reward: 12.391697303921568, states: 3218, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 05:59:43	score: 4332.475949754902, reward: 11.129518995098037, states: 3776, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:00:05	score: 4180.256127450981, reward: 13.525122549019612, states: 3504, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:00:26	score: 4050.0553002450984, reward: 11.761106004901967, states: 3462, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:00:50	score: 4547.37362132353, reward: 12.747472426470587, states: 3910, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:01:13	score: 4523.0, reward: 13.0, states: 3873, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:01:37	score: 4540.038602941177, reward: 13.320772058823529, states: 3874, train_cnt: 14, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:05:16	score: 4314.673560049019, reward: 12.033471200980392, states: 3713, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:09:05	score: 4137.052083333334, reward: 13.401041666666671, states: 3467, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:12:37	score: 4820.346354166666, reward: 17.26692708333333, states: 3957, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 06:16:28	score: 4185.278492647059, reward: 12.385569852941176, states: 3566, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:19:59	score: 5099.177083333334, reward: 16.46354166666667, states: 4276, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:23:38	score: 4528.254595588235, reward: 13.425091911764705, states: 3857, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:27:18	score: 4671.643535539216, reward: 16.17287071078432, states: 3863, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:30:45	score: 4439.788756127451, reward: 15.855775122549025, states: 3647, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:34:14	score: 4534.157015931372, reward: 17.003140318627455, states: 3684, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:37:46	score: 4413.701439950981, reward: 15.654028799019606, states: 3631, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 06:38:08	score: 3938.201286764706, reward: 12.744025735294116, states: 3301, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:38:31	score: 4336.901348039216, reward: 13.958026960784318, states: 3639, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:38:52	score: 3929.635416666667, reward: 12.192708333333334, states: 3320, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:39:14	score: 4089.1726409313724, reward: 10.323452818627452, states: 3573, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:39:34	score: 3540.686887254902, reward: 11.453737745098044, states: 2968, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:39:58	score: 4467.9480698529405, reward: 12.25896139705882, states: 3855, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:40:20	score: 4127.884650735294, reward: 13.017693014705879, states: 3477, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:40:40	score: 3721.642463235294, reward: 11.052849264705884, states: 3169, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:41:02	score: 4291.202205882353, reward: 13.204044117647063, states: 3631, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:41:24	score: 4075.1593137254904, reward: 11.903186274509807, states: 3480, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 06:44:50	score: 4571.210171568628, reward: 15.524203431372554, states: 3795, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:48:17	score: 4480.36075367647, reward: 16.307215073529413, states: 3665, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 06:51:39	score: 4509.408241421568, reward: 14.908164828431369, states: 3764, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:55:08	score: 4698.340839460784, reward: 15.006816789215685, states: 3948, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 06:59:07	score: 4283.66268382353, reward: 14.173253676470589, states: 3575, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:02:41	score: 4486.9165134803925, reward: 14.798330269607845, states: 3747, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 07:06:13	score: 4681.695772058823, reward: 16.733915441176475, states: 3845, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 07:09:48	score: 4590.831341911765, reward: 16.836626838235297, states: 3749, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 07:13:16	score: 4520.23606004902, reward: 17.564721200980397, states: 3642, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 07:16:46	score: 4562.9142156862745, reward: 16.39828431372549, states: 3743, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 07:17:10	score: 4775.5962009803925, reward: 13.231924019607845, states: 4114, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 07:17:32	score: 3664.4713541666665, reward: 10.32942708333333, states: 3148, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:17:53	score: 3936.4920343137255, reward: 12.429840686274515, states: 3315, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:18:14	score: 3692.352175245098, reward: 11.847043504901961, states: 3100, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:18:33	score: 3216.852481617647, reward: 9.91704963235294, states: 2721, train_cnt: 15, mutation_cnt: 6, seq_num: 47
+2023-08-26 07:18:55	score: 4189.328431372549, reward: 12.546568627450988, states: 3562, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:19:18	score: 4626.660845588235, reward: 13.753216911764708, states: 3939, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:19:37	score: 2975.1986825980393, reward: 8.023973651960782, states: 2574, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:19:58	score: 3823.5030637254904, reward: 10.950061274509808, states: 3276, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:20:21	score: 3979.5525428921574, reward: 11.631050857843142, states: 3398, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:23:49	score: 5084.579197303921, reward: 16.471583946078436, states: 4261, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:27:13	score: 4737.816789215686, reward: 14.636335784313728, states: 4006, train_cnt: 17, mutation_cnt: 6, seq_num: 47
+2023-08-26 07:31:56	score: 2894.9067095588234, reward: 8.55813419117647, states: 2467, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:35:25	score: 4594.270833333334, reward: 14.38541666666667, states: 3875, train_cnt: 18, mutation_cnt: 6, seq_num: 47
+2023-08-26 07:38:51	score: 4778.933210784314, reward: 13.738664215686272, states: 4092, train_cnt: 17, mutation_cnt: 6, seq_num: 47
+2023-08-26 07:42:28	score: 3558.8633578431372, reward: 10.277267156862743, states: 3045, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:45:42	score: 4776.888786764706, reward: 16.337775735294123, states: 3960, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 07:49:26	score: 4105.039675245098, reward: 12.44079350490196, states: 3483, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:52:54	score: 4832.085324754902, reward: 15.621706495098033, states: 4051, train_cnt: 18, mutation_cnt: 6, seq_num: 47
+2023-08-26 07:56:23	score: 4778.8878676470595, reward: 15.87775735294118, states: 3985, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:56:45	score: 3703.299325980392, reward: 11.145986519607844, states: 3146, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:57:10	score: 4861.5574448529405, reward: 12.75114889705882, states: 4224, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:57:32	score: 4062.780024509804, reward: 11.735600490196079, states: 3476, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:57:54	score: 4019.7196691176473, reward: 11.694393382352944, states: 3435, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:58:14	score: 3643.788449754902, reward: 11.53576899509804, states: 3067, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:58:35	score: 3607.525275735294, reward: 11.650505514705882, states: 3025, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:58:58	score: 4675.08455882353, reward: 12.321691176470587, states: 4059, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:59:19	score: 3535.984987745098, reward: 9.81969975490196, states: 3045, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 07:59:41	score: 3854.1882659313724, reward: 10.643765318627448, states: 3322, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:00:01	score: 3596.007506127451, reward: 11.340150122549021, states: 3029, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:03:32	score: 4828.280790441177, reward: 15.785615808823534, states: 4039, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:06:49	score: 5182.432138480392, reward: 13.868642769607838, states: 4489, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:10:18	score: 4513.684742647059, reward: 16.713694852941178, states: 3678, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:13:46	score: 4571.715992647059, reward: 16.354319852941178, states: 3754, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:17:26	score: 4355.942401960785, reward: 13.338848039215693, states: 3689, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:20:52	score: 4948.796568627451, reward: 13.015931372549014, states: 4298, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:24:20	score: 4572.699601715686, reward: 16.73399203431373, states: 3736, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:27:42	score: 4530.800245098039, reward: 16.356004901960787, states: 3713, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:31:17	score: 4691.154718137255, reward: 14.103094362745104, states: 3986, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:34:41	score: 4652.305606617647, reward: 16.706112132352946, states: 3817, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:35:04	score: 3705.6640625, reward: 11.11328125, states: 3150, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:35:26	score: 4084.4327512254904, reward: 11.008655024509805, states: 3534, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:35:48	score: 4266.16099877451, reward: 13.163219975490193, states: 3608, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:36:11	score: 4445.3204656862745, reward: 14.726409313725492, states: 3709, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:36:34	score: 3855.2521446078435, reward: 12.365042892156866, states: 3237, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:36:52	score: 3219.584405637255, reward: 9.411688112745098, states: 2749, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:37:16	score: 4511.8800551470595, reward: 12.71760110294118, states: 3876, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:37:37	score: 4099.780024509804, reward: 13.235600490196083, states: 3438, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:37:59	score: 4209.24862132353, reward: 12.684972426470592, states: 3575, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:38:21	score: 3960.4777879901962, reward: 11.049555759803923, states: 3408, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:42:13	score: 4048.2740502450984, reward: 13.245481004901967, states: 3386, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:46:08	score: 4010.649356617647, reward: 11.252987132352942, states: 3448, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:49:36	score: 4571.890318627451, reward: 16.43780637254902, states: 3750, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 08:53:17	score: 4231.123468137255, reward: 12.462469362745097, states: 3608, train_cnt: 18, mutation_cnt: 5, seq_num: 47
+2023-08-26 08:56:46	score: 4497.174019607844, reward: 16.763480392156865, states: 3659, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:00:16	score: 4549.347120098039, reward: 15.566942401960786, states: 3771, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:03:40	score: 4612.676776960784, reward: 15.893535539215689, states: 3818, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:07:05	score: 4456.4998468137255, reward: 16.08999693627451, states: 3652, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:10:31	score: 4581.000459558823, reward: 16.480009191176475, states: 3757, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:14:00	score: 4569.941329656863, reward: 16.218826593137255, states: 3759, train_cnt: 15, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:14:25	score: 4520.194852941177, reward: 14.523897058823536, states: 3794, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:14:48	score: 4267.256127450981, reward: 14.025122549019608, states: 3566, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:15:11	score: 4565.965073529412, reward: 12.519301470588239, states: 3940, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:15:31	score: 3477.1914828431372, reward: 12.003829656862749, states: 2877, train_cnt: 16, mutation_cnt: 6, seq_num: 47
+2023-08-26 09:15:52	score: 3615.363970588235, reward: 9.667279411764705, states: 3132, train_cnt: 14, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:16:10	score: 3049.503216911765, reward: 9.110064338235299, states: 2594, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:16:32	score: 4252.108302696079, reward: 13.122166053921566, states: 3596, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:16:56	score: 4570.7654718137255, reward: 13.035309436274511, states: 3919, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:17:17	score: 3539.4920343137255, reward: 10.429840686274511, states: 3018, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:17:37	score: 3671.8679534313724, reward: 12.07735906862745, states: 3068, train_cnt: 16, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:21:09	score: 4591.859068627451, reward: 16.797181372549023, states: 3752, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:24:35	score: 4386.375306372549, reward: 15.50750612745098, states: 3611, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:28:00	score: 5002.002297794117, reward: 16.40004595588235, states: 4182, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:31:54	score: 3485.9995404411766, reward: 10.01999080882353, states: 2985, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:35:22	score: 4757.245404411765, reward: 16.824908088235297, states: 3916, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:38:55	score: 4527.761642156863, reward: 16.03523284313726, states: 3726, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-26 09:42:22	score: 4544.1014093137255, reward: 16.422028186274513, states: 3723, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:45:52	score: 4426.586550245098, reward: 16.15173100490196, states: 3619, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:49:20	score: 4471.01256127451, reward: 16.120251225490197, states: 3665, train_cnt: 17, mutation_cnt: 4, seq_num: 47
+2023-08-26 09:52:58	score: 4497.011642156863, reward: 16.66023284313726, states: 3664, train_cnt: 16, mutation_cnt: 4, seq_num: 47
+2023-08-30 22:23:28	score: 3282.415287990196, reward: 9.768305759803921, states: 2794, train_cnt: 17, mutation_cnt: 5, seq_num: 47
+2023-08-30 22:23:50	score: 3160.1006433823527, reward: 9.122012867647056, states: 2704, train_cnt: 15, mutation_cnt: 5, seq_num: 47
+2023-08-30 22:24:17	score: 4186.669270833334, reward: 12.053385416666671, states: 3584, train_cnt: 15, mutation_cnt: 5, seq_num: 47

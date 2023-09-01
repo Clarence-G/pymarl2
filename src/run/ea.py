@@ -10,6 +10,7 @@ import json
 import os
 import pickle
 import random
+import time
 
 import torch
 
@@ -63,10 +64,10 @@ class EAPopulation:
         return self
 
     def __gt__(self, other):
-        return self.reward > other.reward and self.states > other.states
+        return self.reward > other.reward and self.seq_num > other.seq_num
 
     def __ge__(self, other):
-        return self.reward >= other.reward and self.states >= other.states
+        return self.reward >= other.reward and self.seq_num >= other.seq_num
 
     def train(self, epoch=0):
         self.unflatten_parameters()
@@ -78,18 +79,20 @@ class EAPopulation:
         self.train_cnt += 1
         self.agent_flat = flatten_parameters(self.agent_param.agent)
 
-    def evaluate(self, epoch=0, file=None):
+    def evaluate(self, epoch=0, file=None, random_action=False):
         self.unflatten_parameters()
         args_tmp = copy.deepcopy(self.args)
         if epoch > 0:
             args_tmp.test_nepisode = epoch
 
-        self.states, self.reward, self.seq_num = agent_evaluate_sequential(args_tmp, logger, self.agent_param)
+        self.states, self.reward, self.seq_num = agent_evaluate_sequential(args_tmp, logger, self.agent_param, random_action=random_action)
         self.score = self.reward * 50 + self.states
         # save len(state_set) and avg_reward   to file
         if file is not None:
             with open(file, "a+") as f:
-                f.write(str(self) + "\n")
+                # f.write(str(time.time())+"\t" + str(self) + "\n")
+                log_str = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + "\t" + str(self) + "\n"
+                f.write(log_str)
 
     def unflatten_parameters(self):
         flattened = self.agent_flat
@@ -143,6 +146,8 @@ class EAPopulation:
         clone_population.states = self.states
         clone_population.train_cnt = self.train_cnt
         clone_population.mutation_cnt = self.mutation_cnt
+        clone_population.seq_num = self.seq_num
+
         return clone_population
 
     def save_to_file(self, path):
@@ -167,6 +172,7 @@ class EA:
         self.pop_size = pop_size
         self.mutation_rate = mutation_rate
         self.crossover_rate = crossover_rate
+        self.log_file = file
 
         for i in range(self.pop_size):
             population = EAPopulation(args)
@@ -174,16 +180,17 @@ class EA:
             self.populations.append(population)
         print("############ init finished ############")
 
+
     def mutation_train(self, num_epochs):
         self.offspring_tmp = []
         for i in range(num_epochs):
             print("############ mutation train epoch: ", i, " ############")
             for p in self.populations:
                 p.train()
-                p.evaluate(file="mutation_train.txt")
+                p.evaluate(file=self.log_file)
                 if random.random() < self.mutation_rate:
                     p = p.random_mutation()
-                    p.evaluate(file="mutation_train.txt")
+                    p.evaluate(file=self.log_file)
                 self.offspring_tmp.append(p)
             self.populations = self.offspring_tmp
             self.offspring_tmp = []
@@ -227,10 +234,89 @@ class EA:
         with open(path, 'rb') as f:
             return pickle.load(f)
 
-    def evolve(self, num_generations, path):
+    def drl(self, path, duration=60 * 60):
+        p = self.populations[0]
+        start_time = time.time()
+        while time.time() - start_time <= duration:
+            p.train()
+            p.evaluate(file=self.log_file)
+            self.save_to_file(path)
+
+
+
+
+    def evolve(self, num_generations, path, duration = None):
+
+        select_func = lambda x: (x.reward, x.seq_num)
+        start_time = time.time()
+
+        for i in range(num_generations):
+            print("############ evolution rounds {} ############: ".format(i))
+            if duration and  time.time() - start_time >= duration:
+                break
+
+            offspring_p = self.cross_mutate()
+            for pp in offspring_p:
+                pp.evaluate(file=self.log_file)
+            print(self)
+
+            self.offspring_tmp = offspring_p
+            for i in range(self.pop_size):
+                q = random.choice(offspring_p+self.populations).clone()
+                q.train()
+                q.evaluate(file=self.log_file)
+                self.offspring_tmp.append(q)
+                self.save_to_file(path)
+
+            offspring = offspring_p + self.populations
+            self.populations = pop_select(offspring, self.pop_size, select_func)
+
+            self.save_to_file(path)
+            self.offspring_tmp = []
+
+    def random_action(self, num_generations=1000):
+        p = self.populations[0]
+        for i in range(num_generations):
+            p.evaluate(file=self.log_file, random_action=True)
+
+    def ea_s(self, num_generations, path):
+        # evaluate only consider the reward
+        select_func = lambda x: (x.reward, x.reward)
+        print(self)
+        for i in range(num_generations):
+            print("############ evolution rounds {} ############: ".format(i))
+
+            offspring_p = self.cross_mutate()
+            for pp in offspring_p:
+                pp.evaluate(file=self.log_file)
+            print(self)
+
+            offspring = offspring_p + self.populations
+            self.populations = pop_select(offspring, self.pop_size, select_func)
+            self.save_to_file(path)
+
+    def ea_m(self, num_generations, path):
+        select_func = lambda x: (x.reward, x.seq_num)
+        print(self)
+        for i in range(num_generations):
+            print("############ evolution rounds {} ############: ".format(i))
+
+            offspring_p = self.cross_mutate()
+            for pp in offspring_p:
+                pp.evaluate(file=self.log_file)
+            print(self)
+
+            offspring = offspring_p + self.populations
+            self.populations = pop_select(offspring, self.pop_size, select_func)
+
+            self.save_to_file(path)
+
+    def ea_s_drl(self, num_generations, path):
+        select_func = lambda x: (x.reward, x.reward)
+
         if len(self.offspring_tmp) > 0:
             # load offspring_tmp if it is not empty
-            self.populations = pop_select(self.offspring_tmp, self.pop_size, lambda x: (x.reward, x.states))
+            self.populations = pop_select(self.offspring_tmp, self.pop_size, select_func)
             self.offspring_tmp = []
         print(self)
         for i in range(num_generations):
@@ -238,22 +324,26 @@ class EA:
 
             offspring_p = self.cross_mutate()
             for pp in offspring_p:
-                pp.evaluate()
+                pp.evaluate(file=self.log_file)
             print(self)
 
             self.offspring_tmp = offspring_p
             for i in range(self.pop_size):
-                q = random.choice(offspring_p+self.populations).clone()
+                q = random.choice(offspring_p + self.populations).clone()
                 q.train()
-                q.evaluate()
+                q.evaluate(file=self.log_file)
                 self.offspring_tmp.append(q)
                 self.save_to_file(path)
 
             offspring = offspring_p + self.populations
-            self.populations = pop_select(offspring, self.pop_size, lambda x: (x.reward, x.states))
+            self.populations = pop_select(offspring, self.pop_size, select_func)
 
             self.save_to_file(path)
             self.offspring_tmp = []
+
+
+
+
 
     def __str__(self):
         pop_str = ""

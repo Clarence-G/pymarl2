@@ -80,7 +80,7 @@ def dtw_d(s1, s2, w):
             DTW[(i, j)] = float('inf')
     DTW[(-1, -1)] = 0
 
-    print('entering dtw')
+    # print('entering dtw')
     for i in range(s1_shape[2]):
         for j in range(max(0, i - w), min(s2_shape[2], i + w)):
             # squared euc distance

@@ -23,7 +23,7 @@ from components.transforms import OneHot
 from smac.env import StarCraft2Env
 from params import AgentParam
 from dwt import dtw_d
-
+from utils.similar import compute_distance_behavior_states
 
 def get_agent_own_state_size(env_args):
     sc_env = StarCraft2Env(**env_args)
@@ -53,20 +53,20 @@ def complete_list_length(lst, target_length, fill_value=None):
     return lst
 
 
-def cal_seq_num(seq_list, threshold=10):
+def cal_seq_num(seq_list, threshold=0.4):
     seq_num = 0
 
     first_length = len(seq_list[0])
     seq_arr_lst = []
 
-    for seq in seq_list:
-        complete_list_length(seq, first_length)
-        seq_arr_lst.append(np.stack(seq, axis=1))
+    # for seq in seq_list:
+    #     complete_list_length(seq, first_length)
+    #     seq_arr_lst.append(np.stack(seq, axis=1))
 
     for i in range(1, len(seq_arr_lst)):
         for j in range(i):
-            sim = dtw_d(seq_arr_lst[i], seq_arr_lst[j], w=0.1)
-            print(sim)
+            sim = compute_distance_behavior_states(seq_arr_lst[i], seq_arr_lst[j])
+            # print(sim)
             if sim > threshold:
                 seq_num += 1
                 break
@@ -74,7 +74,7 @@ def cal_seq_num(seq_list, threshold=10):
     return seq_num
 
 
-def agent_evaluate_sequential(args, logger, param: AgentParam = None):
+def agent_evaluate_sequential(args, logger, param: AgentParam = None, random_action=False):
     # copy args
     args = copy.deepcopy(args)
     args.runner = "episode"
@@ -90,7 +90,7 @@ def agent_evaluate_sequential(args, logger, param: AgentParam = None):
     # start evaluate
     logger.console_logger.info("Start evaluating agent for {} episodes".format(args.test_nepisode))
     for _ in range(args.test_nepisode):
-        batch, para = runner.run(test_mode=True)
+        batch, para = runner.run(test_mode=True, random_action=random_action)
         for s in para.state_list:
             state_set.add(tuple(s))
         seq_list.append(para.state_list)
