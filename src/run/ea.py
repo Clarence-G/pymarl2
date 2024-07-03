@@ -25,10 +25,12 @@ logger = logging.Logger(_log)
 
 
 def flatten_parameters(agent):
+    # Flatten the parameters of the agent
     return torch.cat([pu.view(-1) for pu in agent.parameters()])
 
 
 def cd_select(population, n):
+    # select n individuals from population
     return random.sample(population, n)
 
 
